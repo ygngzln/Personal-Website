@@ -18,8 +18,8 @@ app.use('/api/v1/suggestions', require('./route'))
 app.use('/api/v1/fhilts', require('./route'))
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname, '../Frontend')))
-    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'frontend', /*'src',*/ 'index.html')))
+    app.use(express.static(path.join(__dirname, '../Frontend/dist')))
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'Frontend', 'dist', 'index.html')))
 }else{
     app.get('/', (req, res) => res.send('Not production'))
 }

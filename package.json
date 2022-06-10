@@ -5,11 +5,11 @@
   "type": "commonjs",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "server": "nodemon Backend/backend.js",
-    "all": "concurrently \"nodemon Backend/backend.js\" \"cd Frontend && npm run dev\""
+    "all": "concurrently \"nodemon Backend/backend.js\" \"cd Frontend && npm run dev\"",
+    "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix Frontend && npm run build --prefix Frontend"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
