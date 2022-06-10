@@ -10,6 +10,10 @@
   import Fhilt from './lib/Fhilt.svelte'
   import Sbtn from './lib/Sbtn.svelte'
   import { Router, Link, Route } from "svelte-routing";
+  import G from './assets/github.png'
+  import WF from './assets/wynnforumslogo.png'
+  import WS from './assets/wynnlogo.png'
+  import R from './assets/repllogo.png'
 
   let loaded = false;
   let pages = false;
@@ -45,10 +49,10 @@
   {/if}
 </div>
 <div id="others">
-  <Sbtn stuff={{link: "https://github.com/ygngzln", title:"Github", img: "src/assets/github.png"}} />
-  <Sbtn stuff={{link: "https://forums.wynncraft.com/members/kittymenace.142840/", title:"Wynncraft Forums", img:"src/assets/wynnforumslogo.png"}} />
-  <Sbtn stuff={{link: "https://wynncraft.com/stats/player/AFetKetSlayWybel", title:"Wynncraft Stats", img:"src/assets/wynnlogo.png"}}/>
-  <Sbtn stuff={{link: "https://replit.com/@yilitcs2", title: "Replit", img:"src/assets/repllogo.png"}} />
+  <Sbtn stuff={{link: "https://github.com/ygngzln", title:"Github", img: G}} />
+  <Sbtn stuff={{link: "https://forums.wynncraft.com/members/kittymenace.142840/", title:"Wynncraft Forums", img:WF}} />
+  <Sbtn stuff={{link: "https://wynncraft.com/stats/player/AFetKetSlayWybel", title:"Wynncraft Stats", img:WS}}/>
+  <Sbtn stuff={{link: "https://replit.com/@yilitcs2", title: "Replit", img:R}} />
 </div>
 <hr>
 <div>

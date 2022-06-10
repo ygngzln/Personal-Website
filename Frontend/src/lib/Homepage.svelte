@@ -1,7 +1,8 @@
 <script lang="ts">
     import Hometab from './Hometab.svelte'
     import {createEventDispatcher} from 'svelte'
-    import {Router, Link, Route} from 'svelte-routing'
+    import {Router, Link} from 'svelte-routing'
+    import F from '../assets/fhilt.png'
     
     const dispatcher = createEventDispatcher()
 
@@ -42,7 +43,7 @@
 <Hometab tabmsg="Changes" msg={msg2} left=73 top=181/>
 <Hometab tabmsg="About Me" msg={msg3} left=27 top=460/>
 <Router url="">
-    <Link to="/Fhilts"><img src={'/src/assets/fhilt.png'} id="fhilt" on:click={function(){ dispatcher("fhiltpage") }} width=40 height=40 alt="Fhilt"/></Link>
+    <Link to="/Fhilts"><img src="{F}" id="fhilt" on:click={function(){ dispatcher("fhiltpage") }} width=40 height=40 alt="Fhilt"/></Link>
 </Router>
 
 <style>
