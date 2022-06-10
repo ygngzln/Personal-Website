@@ -1,0 +1,35 @@
+{
+  "name": "mysveltepage",
+  "private": true,
+  "version": "0.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "server": "nodemon Backend/backend.js",
+    "all": "concurrently \"nodemon Backend/backend.js\" \"cd Frontend && npm run dev\""
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
+    "@tsconfig/svelte": "^2.0.1",
+    "kill-port": "^2.0.0",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.2.7",
+    "svelte-preprocess": "^4.9.8",
+    "tslib": "^2.3.1",
+    "typescript": "^4.7.3",
+    "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "concurrently": "^7.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express-async-handler": "^1.2.0",
+    "mongodb": "^4.6.0",
+    "mongoose": "^6.3.5",
+    "nodemon": "^2.0.16"
+  }
+}
