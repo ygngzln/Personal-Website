@@ -4,10 +4,7 @@ const connectionString = process.env.MONGOBLOGS
 
 const connectDB = async () => {
     try {
-        const fig = await mongoose.connect(`${connectionString}`,{
-            useUnifiedTopology:true,
-            useNewUrlParser: true
-        })
+        const fig = await mongoose.connect(`${connectionString}`)
         console.log(`MongoDB has been connnected at ${fig.connection.host}`)
     } catch (e){
         console.log(e)
