@@ -77,7 +77,7 @@ function send(){
     #s {
         text-align: center;
         position: absolute;
-        left: 50%;
+        left: 85.5%;
         transform: translateX(-50%);
         bottom: 25px;
     }

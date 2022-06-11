@@ -108,7 +108,7 @@
     }
 
     .date {
-        margin-top: 20px;
+        margin-top: 15px;
         background-color: rgb(0, 181, 181);
         font-weight: bold;
         font-size: 28px;
@@ -118,6 +118,7 @@
     }
 
     .message {
+        margin-bottom: 5px;
         background-color: darkcyan;
         font-size: 18px;
         padding: 10px;
