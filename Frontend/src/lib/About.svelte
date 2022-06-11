@@ -2,7 +2,7 @@
 import axios from "axios";
 
 let msg;
-const uri = 'http://localhost:4000/api/v1/suggestions/'
+const uri = '/api/v1/suggestions/'
 function send(){
     axios.post(uri, {
         message: msg.value,
