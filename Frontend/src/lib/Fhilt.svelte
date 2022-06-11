@@ -50,7 +50,7 @@
 <div id="mid">
     <button id="left" class="b" on:click={left}>←</button>
     {#if loaded}
-    <img src={flist[page-1].imgLink} alt="Fhilt did not load" width=480 height=570/>
+    <img src={flist[page-1].imgLink} alt="Fhilt did not load" width=480 height=530/>
     {/if}
     <button id="right" class="b" on:click={right}>→</button>
 </div>
