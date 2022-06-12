@@ -3,7 +3,7 @@
     import {fly} from 'svelte/transition'
     import {sineIn} from 'svelte/easing'
     let us, pass, date, msg;
-    const uri = '/api/v1/blogs/'
+    const uri = 'https://backendyigeng.herokuapp.com/api/v1/blogs/'
     let list;
     let loaded = false
     async function get(){

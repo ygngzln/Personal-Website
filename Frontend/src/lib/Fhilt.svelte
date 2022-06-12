@@ -1,6 +1,6 @@
 <script>
     import axios from 'axios'
-    const uri = '/api/v1/fhilts/'
+    const uri = 'https://backendyigeng.herokuapp.com/api/v1/fhilts'
     let maxpages;
     let flist = [];
     let loaded = false;

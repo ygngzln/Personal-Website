@@ -2,7 +2,7 @@
 import axios from "axios";
 
 let msg;
-const uri = '/api/v1/suggestions/'
+const uri = 'https://backendyigeng.herokuapp.com/api/v1/suggestions/'
 function send(){
     axios.post(uri, {
         message: msg.value,
