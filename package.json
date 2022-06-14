@@ -5,7 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "dev": "vite",
-    "start": "node Backend/backend.js",
+    "start": "npm run preview --prefix Frontend",
     "preview": "npm run preview --prefix Frontend",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "server": "nodemon Backend/backend.js",

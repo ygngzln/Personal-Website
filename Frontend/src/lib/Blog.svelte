@@ -33,6 +33,8 @@
                 <div class="message">{entry.message}</div>
             </div>
         {/each}
+    {:else}
+            <div id="load">Loading<span id="1">.</span><span id="2">.</span><span id="3">.</span></div>
     {/if}
 </div>
 
@@ -79,7 +81,13 @@
         cursor: pointer;
     }
 
-     #entry {
+    #load {
+        font-size: 40px;
+        margin-top: 45px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    #entry {
         text-align: center;
         top: 162px;
         position: relative;
@@ -125,5 +133,37 @@
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
         font-style: normal;
+    }
+
+    #1 {
+        animation-duration: 1s;
+        animation-name: blink;
+        animation-iteration-count: infinite;
+    }
+
+    #2 {
+        animation-duration: 1.5s;
+        animation-name: blink;
+        animation-iteration-count: infinite;
+    }
+
+    #3 {
+        animation-duration: 2s;
+        animation-name: blink;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes blink {
+        0% {
+            display:hidden;
+        }
+
+        50% {
+            display:visible;
+        }
+
+        100% {
+            display:hidden;
+        }
     }
 </style>

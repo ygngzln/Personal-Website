@@ -193,38 +193,6 @@
     ]
 </script>
 
-<div id="buttons">
-    <div id="github">
-        <a href="https://github.com/ygngzln?tab=repositories" target="_blank">Github Project Repositories</a>
-    </div>
-</div>
-
 {#each projects as x}
     <Case project={x} n={x.n}/>
 {/each}
-
-<style>
-    a {
-        color: turquoise;
-        text-decoration: none;
-    }
-
-    #buttons {
-        margin-top: 172px;
-        display: inline-block;
-        position: fixed;
-    }
-
-    #github {
-        background-color: darkblue;
-        border-radius: 8px;
-        padding: 7px;
-        font-size: 24px;
-        font-weight: bold;
-    }
-
-    #github:hover {
-        font-size: 25px;
-        background-color: rgb(0, 0, 200);
-    }
-</style>
