@@ -13,7 +13,7 @@
         for(let x=0;x<maxpages.data.length;x++){
             flist.unshift(maxpages.data[x])
         }
-        maxpages = maxpages.data[0].rank
+        maxpages = Object.keys(maxpages.data).length
         loaded = true;
     }
     maxpg()
@@ -48,7 +48,7 @@
 <button id="left" class="b" on:click={left} out:fade="{{duration:1}}">←</button>
 {#if loaded}
     {#key up}
-        <img src={flist[page-1].imgLink} alt="Fhilt did not load" width=480 height=545 in:fade="{{easing: linear, duration: 500}}" out:fly="{{x:100, easing:linear, duration: 500}}"/>
+        <img src={flist[maxpages-page].imgLink} alt="Fhilt did not load" width=480 height=545 in:fade="{{easing: linear, duration: 500}}" out:fly="{{x:100, easing:linear, duration: 500}}"/>
     {/key}
 {/if}
 <button id="right" class="b" on:click={right} out:fade="{{duration:1}}">→</button>

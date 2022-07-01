@@ -5,6 +5,7 @@
     let blogs = 'https://backendyigeng.herokuapp.com/api/v1/blogs/'
     function submit(){
         if(us.value != import.meta.env.VITE_USER && pass.value != import.meta.env.VITE_PASS){ return; }
+        console.log("valid")
         if(link.value.trim() != "" || rank.value.trim() != ""){
             axios.post(fhilts, {
                 imgLink: link.value,
@@ -19,6 +20,7 @@
         }
 
         if(date.value.trim() != "" || msg.value.trim() != ""){
+            console.log("valid2")
             axios.post(blogs, {
                 date: date.value,
                 message: msg.value,
