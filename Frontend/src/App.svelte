@@ -8,6 +8,7 @@
   import Projects from './lib/Projects.svelte'
   import Preload from './lib/Preload.svelte'
   import Fhilt from './lib/Fhilt.svelte'
+  import Admin from './lib/Admin.svelte'
   import Sbtn from './lib/Sbtn.svelte'
   import { Router, Link, Route } from "svelte-routing";
   import G from './assets/github.png'
@@ -61,6 +62,7 @@
   <Route path="Blog"><Blog/></Route>
   <Route path="Projects"><Projects/></Route>
   <Route path="Fhilts"><Fhilt/></Route>
+  <Route path='Admin'><Admin/></Route>
 </div>
 </Router>
 

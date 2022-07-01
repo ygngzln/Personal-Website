@@ -1,8 +1,7 @@
 <script>
     import axios from 'axios'
-    import {fly} from 'svelte/transition'
-    import {sineIn} from 'svelte/easing'
-    let us, pass, date, msg;
+    import {fade} from 'svelte/transition'
+    import {cubicInOut} from 'svelte/easing'
     const uri = 'https://backendyigeng.herokuapp.com/api/v1/blogs/'
     let list;
     let loaded = false
@@ -11,24 +10,12 @@
         loaded = true;
     }
     get()
-    function submitData(){
-        if(us.value != import.meta.env.VITE_USER && pass.value != import.meta.env.VITE_PASS){ return; }
-        axios.post(uri, {
-            date: date.value,
-            message: msg.value
-        })
-        .catch(function(err){
-            console.log(err)
-        })
-        date.value = ""
-        msg.value = ""
-    }
 </script>
 
 <div id="entries">
     {#if loaded}
         {#each list.data as entry}
-            <div in:fly="{{y: entry.entry*-300, easing: sineIn, duration: 550}}">
+            <div in:fade="{{easing: cubicInOut, duration: (Object.keys(list.data).length - entry.entry + 1)*700}}">
                 <div class="date">{entry.date}</div>
                 <div class="message">{entry.message}</div>
             </div>
@@ -38,48 +25,8 @@
     {/if}
 </div>
 
-<div id="entry">
-    <input id="us" bind:this={us} type="text" autocomplete="off" placeholder="Username" />
-    <input id="pass" bind:this={pass} type="password" autocomplete="off" placeholder="Password" />
-    <input id="date" bind:this={date} type="text" autocomplete="off" placeholder="Date" />
-    <input id="msg" bind:this={msg} type="text" autocomplete="off" placeholder="Message"/><br />
-    <button id="sub" on:click={submitData}>Submit</button>
-</div>
-
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Montserrat:wght@100&display=swap');
-
-    #us {
-        border: 2px solid blue;
-        background-color: aqua;
-    }
-
-    #pass {
-        border: 2px solid darkred;
-        background-color: orange;
-    }
-
-    #date {
-        border: 2px solid green;
-        background-color: lawngreen;
-    }
-
-    #msg {
-        border: 2px solid gray;
-        background-color: silver;
-    }
-
-    #sub {
-        border: 3px solid darkgoldenrod;
-        background-color: yellow;
-        margin-top: 5px;
-        font-family:fantasy;
-    }
-
-    #sub:hover {
-        font-size: 15px;
-        cursor: pointer;
-    }
 
     #load {
         font-size: 40px;
@@ -87,25 +34,8 @@
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
 
-    #entry {
-        text-align: center;
-        top: 162px;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    #pass:focus, #date:focus, #msg:focus, #us:focus {
-        outline-width: 0;
-        border: 2px solid black;
-    }
-
-    input::placeholder {
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-
     #entries {
-        top: 230px;
+        top: 175px;
         z-index: 4;
         position: absolute;
         display: table;
@@ -135,35 +65,45 @@
         font-style: normal;
     }
 
-    #1 {
-        animation-duration: 1s;
-        animation-name: blink;
-        animation-iteration-count: infinite;
+    #load {
+        animation: load 3.5s infinite;
     }
 
-    #2 {
-        animation-duration: 1.5s;
-        animation-name: blink;
-        animation-iteration-count: infinite;
-    }
-
-    #3 {
-        animation-duration: 2s;
-        animation-name: blink;
-        animation-iteration-count: infinite;
-    }
-
-    @keyframes blink {
+    @keyframes load {
         0% {
-            display:hidden;
+            font-size: 10px;
+            margin-top: 120px;
+            margin-right: 120px
         }
-
+        17% {
+            font-size: 30px
+        }
+        25% {
+            font-size: 35px
+        }
+        35% {
+            font-size: 20px;
+            margin-right: -120px;
+            margin-top: 0px;
+        }
         50% {
-            display:visible;
+            font-size: 45px;
+            margin-right: 0px;
+            margin-top: 0px;
         }
-
+        62% {
+            font-size: 20px;
+        }
+        75% {
+            font-size: 35px
+        }
+        87% {
+            font-size: 30px
+        }
         100% {
-            display:hidden;
+            font-size: 10px;
+            margin-top: 120px;
+            margin-right: 120px;
         }
     }
 </style>

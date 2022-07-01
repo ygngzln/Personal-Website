@@ -6,7 +6,8 @@ const uri = 'https://backendyigeng.herokuapp.com/api/v1/suggestions/'
 function send(){
     axios.post(uri, {
         message: msg.value,
-        checked: false
+        checked: false,
+        ttokem: import.meta.env.VITE_TTOKEM
     })
     .catch(function(err){
         console.log(err)
@@ -30,7 +31,7 @@ function send(){
 </div>
 
 <div id="s">
-    <input type="text" bind:this={msg} id="msg" placeholder="Ask a question!"> 
+    <input type="text" bind:this={msg} id="msg" placeholder="Ask a question!" autocomplete="off"> 
     <button id="send" on:click={send}>Send</button>
     <div id="ss">You can add your name as well!</div>
 </div>

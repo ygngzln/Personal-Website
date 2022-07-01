@@ -15,11 +15,11 @@
 <main style="--left: {left}%; --top: {top}px; --newtop: {parseInt(top)+59}px">
 <button id="paratitle" on:click={() => click()}>{tabmsg}</button>
 {#if open}
-<div id="para" in:fly={{duration: 550, easing: circIn}} out:fly={{duration: 550, easing: circIn}}>
+  <div id="para" in:fly={{duration: 550, easing: circIn}}>
     {#each msg as x}
-        <div class="para">{x}</div>
+      <div class="para">{x}</div>
     {/each}
-</div>
+  </div>
 {/if}
 </main>
 
