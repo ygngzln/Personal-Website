@@ -3,7 +3,7 @@
 
 This is just my personal website. Feel free to check it out and leave a suggestion in the "About Me" page of the site. I'll be sure to check out your suggestions and/or criticism, as well as fix any bugs and inconveniences. I will be updating this site as I learn more. One likely update I will make in the future is recreating the backend and API.
 
-## Version 1.1 () - Lots of UI Changes and Dynamic Data
+## Version 2 (4.23.2023) - Lots of UI Changes and Dynamic Data
 - Mostly dynamic data
 - Changed most colors and used more images
 - Removed a page
