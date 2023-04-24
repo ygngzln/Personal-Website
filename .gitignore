@@ -14,9 +14,12 @@ dist-ssr
 .env
 *.local
 .vscode
+nodemon.json
+vercel.json
 
 # Editor directories and files
 .vscode/*
+.vscode/
 !.vscode/extensions.json
 .idea
 .DS_Store
@@ -26,3 +29,4 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+node_modules

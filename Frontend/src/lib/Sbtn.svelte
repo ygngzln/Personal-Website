@@ -1,9 +1,9 @@
 <script lang="ts">
-    export let stuff;
+    export let stuff:any;
 </script>
 
-<svg width="40" height="40" class="otherBtn" on:click={function(){window.open(stuff.link)}}>
-    <image href={stuff.img} width="40" height="40"><title>{stuff.title}</title></image>
+<svg width="35" height="35" class="otherBtn" on:click={function(){window.open(stuff.link)}}>
+    <image href={stuff.img} width="35" height="35"><title>{stuff.title}</title></image>
 </svg>
 
 <style>
@@ -15,5 +15,16 @@
     .otherBtn:hover {
         cursor: pointer;
         filter: none;
+    }
+
+    @media screen and (max-width: 414px) {
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+        image {
+            width: 15px;
+            height: 15px;
+        }
     }
 </style>

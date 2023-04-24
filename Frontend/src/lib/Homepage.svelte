@@ -1,64 +1,194 @@
 <script lang="ts">
     import Hometab from './Hometab.svelte'
-    import {createEventDispatcher} from 'svelte'
-    import {Router, Link} from 'svelte-routing'
-    import F from '../assets/fhilt.png'
+    import CurrentProj from './CurrentProj.svelte'
+    import {createEventDispatcher, onMount} from 'svelte'
+    import DataLoading from './DataLoading.svelte'
+    import axios from 'axios'
+    import {fly} from 'svelte/transition'
     
     const dispatcher = createEventDispatcher()
+    let ss: string;
+    if(import.meta.env.VITE_NODE_ENV === "development") {
+        ss = "http://localhost:4000/"
+    } else {
+        ss = import.meta.env.VITE_BACKEND
+    }
+    let uri: string = ss + 'api/v1/currentproject/'
+    let err: boolean = false;
 
-    let msg1 = [
-        "This is my new personal website. My previous personal website, EggSite 1, was created with the JS library reactJS. This website was made with SvelteJS. Out of the two (common to popular opinion), I liked Svelte better. I hope that this website is an improvement and I continue to make more websites and side projects as time goes on and my mind has ideas."
+    let currentproject: any;
+    let loaded:boolean = false;
+    onMount(async() => {
+        window.scrollTo(0,0);
+        currentproject = await axios.get(uri).catch((error) => {
+            err = true;
+        });
+        if(err) return;
+        currentproject = currentproject.data[0];
+        loaded = true;
+    });
+    let msgs:any[] = [
+        {
+            msg: "This is my website. This website is made with Svelte and hosted with Vercel. Uses a JS Rest API for a backend because it's simple. Feel free to leave a suggestion or tell me if there's a bug or somewhere I could improve on! I'm always looking for things to fix!",
+            name: "About The Website"
+        },
+        {
+            msg: "I enjoy coding. I know JS and I intend on expanding mostly C++ and maybe Swift. I also want to become skilled in competitive programming because I'm currently not the best at it but am always looking to improve. Have a good day! :)",
+            name: "About Me"
+        }
     ]
 
-    let msg2 = [
-        "Cleaner + Better",
-        "\u00A0",
-        "Added:",
-        "\u00A0",
-        "+ Animations",
-        "+ Dynamic Blog Updating",
-        "+ Goals With Blog",
-        "+ Project Page",
-        "+ Other Accounts Buttons",
-        "+ Other Pages",
-        "+ Flameshot Hilt Collection Page (Wynncraft)",
-        "+ New Site Theme",
-        "+ Github Hosting",
-        "\u00A0",
-        "Removed:",
-        "\u00A0",
-        "- Old Previous Theme",
-        "- Wynncraft Weapon Poll (This will remain in version ONE)",
-        "- Eggburger Page",
-        "- ReactJS",
-        "- Heroku Hosting"
-    ]
-
-    let msg3 = [
-        "I'm Egg and I'm just a kid that likes coding. Creating and using products (not drugs lmao) give me a feeling of accomplishment. I know a lot of JS but I haven't gotten to the point where I can easily complete medium problems on Leetcode. My HTML and CSS skills are... ok... I guess? I also have some (a bit of) knowledge of Typescript, Python, Lua, Ruby, C++, Java, C#, and weirdly, BrainF. I intend on expanding mostly Lua, C++, and Java as I'm going to use those three the most for pretty much everything (Lua for Roblox programming). In terms of JS website libraries and frameworks, I have used only Svelte and React so far. In the future, I am mostly likely going to try Vue (I have heard about Nuxt3) and React Native. Have a good day!"
-    ]
+    let splashmsgs:string[] = ["Burning His Eyes Out By Programming", "Petting A Really Large Felis Catus", "Consuming Not Water", "Adjusting That One Image", "Deciding What Project To Make"]
 </script>
 
-<Hometab tabmsg="About My Website" msg={msg1} left=27 top=181/>
-<Hometab tabmsg="Changes" msg={msg2} left=73 top=181/>
-<Hometab tabmsg="About Me" msg={msg3} left=27 top=460/>
-<Router url="">
-    <Link to="/Fhilts"><img src="{F}" id="fhilt" on:click={function(){ dispatcher("fhiltpage") }} width=40 height=40 alt="Fhilt"/></Link>
-</Router>
+<div id="image" in:fly={{x:-500, duration: 350}}>
+    <div class="opacity">
+        <div id="text">
+            <div id="title">
+                Yigeng Lin
+            </div>
+            Some Freshman Who's {splashmsgs[Math.floor(Math.random()*splashmsgs.length)]} <br>
+            Currently Inhabits California <br>
+            Funny Cats 👍 <br>
+            <div id="currentproject">
+                Currently Nonstop Annoying Someone With His Next Project...
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="currentprojectImage">
+    {#if loaded}
+        <div class="rel" in:fly={{y:-150, duration: 500}}>
+            <div class="opacity">
+                <CurrentProj currentproject={currentproject}/>
+            </div>
+        </div>
+    {:else}
+    <div id="staticspace">
+        {#if err}
+            <div class="error">There was an error retrieving data. Try reloading. If this problem persists, please tell me.</div>
+        {:else}
+            <DataLoading />
+        {/if}
+    </div>
+    {/if}
+</div>
+
+<span class="tabs" in:fly={{x:-500, duration: 350}}>
+    {#each msgs as msg}
+        <Hometab tabmsg={msg.name} msg={msg.msg}/>
+    {/each}
+</span>
 
 <style>
-    #fhilt {
-        position: absolute;
-        right: 2%;
-        transform: transalteX(-50%);
-        border: 8px groove mediumaquamarine;
-        background-color: darkcyan;
-        padding: 6px;
-        top: 174px;
+    @import url('https://fonts.googleapis.com/css2?family=PT+Sans');
+
+    #currentprojectImage {
+        min-height: 6em;
+        position: relative;
+        text-align: center;
+        background: url('../assets/blackbrick.jpeg');
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    #fhilt:hover {
-        border: 10px groove mediumaquamarine;
-        cursor: pointer;
+    .tabs {
+        margin-top: 1.5em;
+        position: relative;
+        min-height: 263.5px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    #image {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0 10px 0;
+        background: url('../assets/space.jpeg');
+    }
+
+    .rel {
+        background: url('../assets/t.jpeg');
+        background-size: cover;
+        position: relative;
+        text-align: center;
+        width: 100%;
+    }
+
+    .opacity {
+        background-color: rgb(0,0,0,0.45);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+    }
+
+    #title {
+        font-size: 80px;
+        font-family: 'BhuTuka Expanded One', cursive;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    #text {
+        font-size: 39px;
+        font-family: 'PT Sans', sans-serif;
+    }
+
+    #currentproject {
+        font-size: 20px;
+        margin-top: 40px;
+        color: red;
+        font-family: 'Aboreto', cursive;
+    }
+
+    #staticspace {
+        text-align: center;
+    }
+
+    .error {
+        text-align: center;
+        color: white;
+        background: rgb(0, 0, 0, 0.3);
+        font-family: 'Aboreto', cursive;
+    }
+
+    @media screen and (max-width: 414px) {
+        #image {
+            text-align: left;
+            padding: 5px 0 5px 0;
+        }
+
+        .opacity {
+            padding: 4px;
+        }
+
+        #title {
+            font-size: 40px;
+        }
+
+        #text {
+            font-size: 10px;
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        #currentproject {
+            font-size: 11px;
+            margin-top: 20px;
+            color: red;
+            font-family: 'Aboreto', cursive;
+        }
+
+        .tabs {
+            margin-top: 1em;
+        }
     }
 </style>

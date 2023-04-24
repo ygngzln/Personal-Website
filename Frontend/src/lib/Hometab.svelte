@@ -1,81 +1,109 @@
 <script lang="ts">
-    import {fly} from 'svelte/transition'
-    import {circIn} from 'svelte/easing'
-    export let tabmsg;
-    export let msg;
-    export let left;
-    export let top;
-    let open;
+  import {fly} from 'svelte/transition'
+  import {circIn} from 'svelte/easing'
+  export let tabmsg: string;
+  export let msg: string;
+  let open:boolean = true;
 
-    function click(){
-        open = !open;
-    }
+  function click(){
+    open = !open;
+  }
 </script>
 
-<main style="--left: {left}%; --top: {top}px; --newtop: {parseInt(top)+59}px">
-<button id="paratitle" on:click={() => click()}>{tabmsg}</button>
-{#if open}
-  <div id="para" in:fly={{duration: 550, easing: circIn}}>
-    {#each msg as x}
-      <div class="para">{x}</div>
-    {/each}
-  </div>
-{/if}
-</main>
+<span id="main">
+  <div id="tabTitle" on:click={() => click()}>{tabmsg}</div>
+  {#if open}
+    <div id="tabButton" transition:fly|local={{y: 100, duration: 400, easing: circIn}}>
+      <div class="tabText">{msg}</div>
+    </div>
+  {/if}
+</span>
 
 <style>
-  #paratitle {
-    text-decoration: underline;
-    position: absolute;
-    left: var(--left);
-    transform: translateX(-50%);
-    width: 36%;
-    top: var(--top);
-    border: none;
+  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+
+  #main {
+    display: table-cell;
+    vertical-align: top;
+    padding: 0 40px;
+    height: 2
+  }
+
+  #tabTitle {
+    position: relative;
+    text-align: center;
     font-size: 35px;
-    z-index: 1;
-    padding: 7.5px;
-    background-color: darkcyan;
-    border-radius: 20% 20% 0 0;
-    font-family: 'Quicksand', sans-serif;
+    width: 550px;
+    border: 2px solid red;
+    padding: 5.5px 18px;
+    background-color: salmon;
+    border-radius: 35% 35% 0 0;
+    font-family: 'Chakra Petch', sans-serif;
     font-weight: bold;
   }
 
-  #paratitle:hover {
-    background-color: seagreen;
+  #tabTitle:hover {
+    background-color: gainsboro;
     font-size: 36px;
     cursor:pointer;
   }
 
-  #para {
-    position: absolute;
-    left: var(--left);
-    transform: translateX(-50%);
-    top: var(--newtop);
-    width: 35.3%;
+  #tabButton {
     overflow-y: auto;
-    max-height: 60%;
-    padding: 12px 5px;
-    background-color: lightseagreen;
+    padding: 12px 20px;
+    width: 550px;
+    height: 175px;
+    display: inline-block;
+    color: white;
+    background: url('../assets/blackbrick.jpeg');
   }
 
-  #para::-webkit-scrollbar {
+  #tabButton::-webkit-scrollbar {
     border-radius: 4px;
-    background: seagreen;
+    background: black;
     width: 8px;
   }
 
-  #para::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background: mediumaquamarine;
+  #tabButton::-webkit-scrollbar-thumb {
+    background: maroon;
+    width: 4px
   }
 
-  .para {
+  .tabText {
     text-align: left;
     font-size: 20px;
-    z-index: 2;
-    background-color: lightseagreen;
+    padding: 4px;
+    background-color: rgb(0,0,0,0.4);
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
+  }
+
+  @media screen and (max-width: 414px) {
+    #main {
+      padding: 0 10px;
+    }
+
+    #tabTitle {
+      font-size: 15px;
+      width: 150px;
+      border: 2px solid red;
+      padding: 6px 15px;
+    }
+
+    #tabTitle:hover {
+      background-color: salmon;
+      font-size: 15px;
+    }
+
+    #tabButton {
+      overflow-y: auto;
+      padding: 12px 8px;
+      width: 168px;
+    }
+
+    .tabText {
+      font-size: 10px;
+      padding: 4px;
+    }
   }
 </style>

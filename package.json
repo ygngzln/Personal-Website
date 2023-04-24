@@ -4,12 +4,8 @@
   "version": "0.0.0",
   "type": "commonjs",
   "scripts": {
-    "dev": "vite",
-    "start": "npm run preview --prefix Frontend",
-    "preview": "npm run preview --prefix Frontend",
+    "dev": "npm run dev --prefix Frontend",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "server": "nodemon Backend/backend.js",
-    "all": "concurrently \"nodemon Backend/backend.js\" \"cd Frontend && npm run dev\"",
     "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix Frontend && npm run build --prefix Frontend"
   },
   "devDependencies": {
@@ -19,20 +15,19 @@
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.7",
     "svelte-preprocess": "^4.9.8",
-    "tslib": "^2.3.1",
-    "typescript": "^4.7.3",
-    "vite": "^2.9.9"
+    "tslib": "^2.3.1"
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "concurrently": "^7.2.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-async-handler": "^1.2.0",
-    "heroku": "^7.60.2",
+    "heroku": "^7.3.0",
     "mongodb": "^4.6.0",
-    "mongoose": "^6.3.5",
-    "nodemon": "^2.0.16"
+    "mongoose": "^6.7.0",
+    "nodemon": "^2.0.16",
+    "typescript": "^4.8.4",
+    "vite": "^3.2.4"
   }
 }

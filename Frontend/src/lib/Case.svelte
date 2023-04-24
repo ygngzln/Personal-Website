@@ -1,27 +1,25 @@
 <script lang="ts">
-    export let project;
-    export let n;
-    n *= 695
-    n += 174
+    export let project:any;
+    let link = import.meta.env.VITE_BACKEND + "api/v1/imgs/" + project.img
 </script>
 
-<div id="case" style="top: {n}px">
-    <div id="project">{project.title}</div>
-    <div id="imgdiv"><img src={project.img} alt="Project did not load" id="img"/></div>
+<div id="case">
+    <div id="project">{project.name}</div>
+    <div id="imgdiv"><img src={link} alt="Project did not load" id="img"/></div>
     <div id="side">
-        {#each project.side as side}
-        <span>{side}</span>
-        {/each}
+        <span>Date: <br/>{project.date}</span>
+        <span>Language: <br/>{project.language}</span>
+        <span>Status: <br/>{project.status}</span>
+        <span>Type: <br/>{project.type}</span>
     </div>
-    <div id="dsc">{project.desc}</div>
-    <div id="a"><a id="l" target="_blank" href={project.link}>- Project Link -</a></div>
+    <div id="dsc">{project.description}</div>
+    <div id="projLink"><a id="l" target="_blank" rel="noreferrer" href={project.project}>- Project Link -</a></div>
 </div>
 
 <style>
     #case {
-        position: absolute;
-        transform: translateX(-50%);
-        left: 50%;
+        position: relative;
+        width: 50%;
         text-align: center;
         border: 20px groove cyan;
     }
@@ -31,20 +29,24 @@
         font-weight: bold;
         background-color: aquamarine;
         border: 6px solid blue;
+        font-family: 'Dynapuff', monospace;
     }
 
     #imgdiv {
         width: 100%;
-        height: 400px;  
+        height: 400px;
+        background: rgb(0,0,0,0.2);
     }
 
     #img {
         width: 100%;
         height: 100%;
+        position: relative;
+        z-index: -1;
     }
     
     #side {
-        font-size: 22px;
+        font-size: 20px;
         border: 4px solid darkblue;
         background-color: cyan;
         padding: 6px 0;
@@ -55,8 +57,8 @@
     #dsc {
         font-size: 20px;
         background-color: mediumaquamarine;
-        padding: 6px 0;
-        max-height: 75px;
+        padding: 6px 4px;
+        max-height: 140px;
         overflow-y: auto;
     }
 
@@ -64,7 +66,7 @@
         width: 1px;
     }
 
-    #a {
+    #projLink {
         background-color: black;
     }
     
@@ -73,6 +75,9 @@
         font-size: 15px;
         padding: 10px 0;
         text-decoration: none;
+        position: relative;
+        width: 100%;
+        display: block;
     }
 
     #l:hover {
