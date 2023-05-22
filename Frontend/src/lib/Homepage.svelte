@@ -140,6 +140,7 @@
 
     #text {
         font-size: 39px;
+        line-height:140%;
         font-family: 'PT Sans', sans-serif;
     }
 
@@ -163,7 +164,7 @@
 
     @media screen and (max-width: 414px) {
         #image {
-            text-align: left;
+            text-align: center;
             padding: 5px 0 5px 0;
         }
 
@@ -172,17 +173,17 @@
         }
 
         #title {
-            font-size: 40px;
+            font-size: 42px;
         }
 
         #text {
-            font-size: 10px;
+            font-size: 24px;
             font-family: 'PT Sans', sans-serif;
         }
 
         #currentproject {
-            font-size: 11px;
-            margin-top: 20px;
+            font-size: 16px;
+            margin-top: 24px;
             color: red;
             font-family: 'Aboreto', cursive;
         }

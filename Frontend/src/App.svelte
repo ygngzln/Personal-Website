@@ -270,7 +270,7 @@
   }
 
   .mobileLinks > :global(a) {
-    margin: 0 8px;
+    margin: 0 14px;
     color: black;
     font-family: 'Rajdhani', sans-serif;
     font-weight: bold;
@@ -361,7 +361,7 @@
 
     #footerText {
       margin-right: 3px;
-      font-size: 8px;
+      font-size: 12px;
     }
 
     .mobileLinks > :global(a) {

@@ -57,4 +57,10 @@
         justify-content: center;
         position: relative;
     }
+
+    @media screen and (max-width: 414px) {
+        #projTitle {
+            font-size: 45px;
+        }
+    }
 </style>

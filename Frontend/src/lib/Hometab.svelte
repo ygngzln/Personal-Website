@@ -84,10 +84,10 @@
     }
 
     #tabTitle {
-      font-size: 15px;
-      width: 150px;
+      font-size: 18px;
+      width: 155px;
       border: 2px solid red;
-      padding: 6px 15px;
+      padding: 4px 12px;
     }
 
     #tabTitle:hover {
@@ -102,7 +102,7 @@
     }
 
     .tabText {
-      font-size: 10px;
+      font-size: 14px;
       padding: 4px;
     }
   }

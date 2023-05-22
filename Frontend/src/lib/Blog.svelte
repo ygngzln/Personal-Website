@@ -26,7 +26,7 @@
 <div id="entries">
     {#if loaded}
         {#each list.data as entry}
-            <div in:fade="{{easing: cubicInOut, duration: (Object.keys(list.data).length - entry.entry + 1)*700}}">
+            <div class="blogCase" in:fade="{{easing: cubicInOut, duration: (Object.keys(list.data).length - entry.entry + 1)*700}}">
                 <div class="date">{entry.date}</div>
                 <div class="message">{entry.message}</div>
             </div>
@@ -92,5 +92,11 @@
         font-weight: bold;
         color: white;
         font-style: normal;
+    }
+
+    @media screen and (max-width: 414px) {
+        #entries {
+            width: 95%;
+        }
     }
 </style>

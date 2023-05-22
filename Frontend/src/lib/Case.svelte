@@ -83,4 +83,40 @@
     #l:hover {
         font-size: 16px;
     }
+
+    @media screen and (max-width: 414px) {
+        #case {
+            width: 90%;
+            border: 16px groove cyan;
+        }
+
+        #project {
+            font-size: 32px;
+            border: 4px solid blue;
+        }
+
+        #imgdiv {
+            height: 220px;
+        }
+
+        #side {
+            font-size: 14px;
+            padding: 6px 2px;
+        }
+
+        #dsc {
+            font-size: 16px;
+            padding: 3px 4px;
+            max-height: 100px;
+        }
+
+        #l {
+            font-size: 12px;
+            padding: 7.5px 0;
+        }
+
+        #l:hover {
+            font-size: 12.75px;
+        }
+    }
 </style>

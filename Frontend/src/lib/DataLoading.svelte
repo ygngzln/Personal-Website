@@ -29,7 +29,7 @@
 <span id="load" bind:this={loadFull}>
     <span id="half1" bind:this={load1}>Load</span><span id="half2" bind:this={load2}>ing...</span>
 </span>
-<div id="grr">(May take up to three minutes if data has not been loaded in some time...)</div>
+<div id="grr">(May take up to 1-2 minutes if data has not been loaded in some time...)</div>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');

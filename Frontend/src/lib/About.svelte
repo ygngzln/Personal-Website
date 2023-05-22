@@ -13,8 +13,41 @@ if(import.meta.env.VITE_NODE_ENV === "development") {
 }
 let uri2:string = stringstart + 'api/v1/qna/'
 let uri:string = stringstart + 'api/v1/suggestions/'
+
+function buttonLocal() {
+    let before = localStorage.getItem("time");
+    if(!before) {
+        localStorage.setItem("time", `${Date.now()}`)
+        return 1;
+    }
+
+    let now = Date.now();
+    if(now - parseInt(before) > 90000) {
+        localStorage.setItem("time", `${now}`);
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+function repeatedLetter(str) {
+    str = str.toLowerCase();
+    let cnt = 0;
+    for(let i = 0; i < str.length; i++) {
+        if(str[i] == str[i-1]) cnt++;
+        else cnt = 0;
+        if(cnt == 5) return true;
+    }
+    return false;
+}
+
 function send(){
     if(msg.value.trim() === ""){ return; }
+    if(msg.value.replaceAll(' ', '').length < 6){ return; }
+    if(msg.value.indexOf(' ') == -1){ return; }
+    if(repeatedLetter(msg.value)){ return; }
+    if(!buttonLocal()) { return; }
+    
     axios.post(uri, {
         message: msg.value,
         checked: false,
@@ -24,6 +57,8 @@ function send(){
         console.log(err)
     })
     msg.value = ""
+
+
 }
 
 let qna:any;
