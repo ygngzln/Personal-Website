@@ -1,7 +1,7 @@
 # My Personal Website 
 ###### Link: https://yigengl.vercel.app
 
-This is just my personal website. Feel free to check it out and leave a suggestion in the "About Me" page of the site. I'll be sure to check out your suggestions and/or criticism, as well as fix any bugs and inconveniences. I will be updating this site as I learn more. One likely update I will make in the future is recreating the backend and API.
+This is just my personal website. Feel free to check it out and leave a suggestion in the "About Me" page of the site. I'll be sure to check out your suggestions and/or criticism, as well as fix any bugs and inconveniences. Leave your comments at the suggestions part of my website or email me at ygngzln@gmail.com.
 
 ## Version 2 (4.23.2023) - Lots of UI Changes and Dynamic Data
 - Mostly dynamic data

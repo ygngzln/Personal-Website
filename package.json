@@ -15,7 +15,10 @@
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.7",
     "svelte-preprocess": "^4.9.8",
-    "tslib": "^2.3.1"
+    "tslib": "^2.3.1",
+    "http-cache-semantics": "^4.1.1",
+    "printf": "^0.6.1",
+    "got": "^13.0.0"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -23,10 +26,12 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-async-handler": "^1.2.0",
+    "fast-xml-parser": "^4.2.7",
     "heroku": "^7.3.0",
     "mongodb": "^4.6.0",
     "mongoose": "^6.7.0",
     "nodemon": "^2.0.16",
+    "semver": "^7.5.4",
     "typescript": "^4.8.4",
     "vite": "^3.2.4"
   }

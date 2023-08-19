@@ -52,10 +52,10 @@
     overflow-y: auto;
     padding: 12px 20px;
     width: 550px;
-    height: 175px;
+    height: 170px;
     display: inline-block;
     color: white;
-    background: url('../assets/blackbrick.jpeg');
+    background-color: rgb(0, 0, 0, 0.4);
   }
 
   #tabButton::-webkit-scrollbar {

@@ -57,8 +57,6 @@ function send(){
         console.log(err)
     })
     msg.value = ""
-
-
 }
 
 let qna:any;
@@ -88,6 +86,7 @@ onMount(async() => {
             <div id="sendTitle">Suggestions & Questions</div>
             <input type="text" bind:this={msg} id="msg" placeholder="Ask a question!" autocomplete="off"> <br/>
             <button id="send" on:click={send}>Send</button>
+            <div id="sendEmail">You can also contact me at ygngzln@gmail.com</div>
         </div>
     </div>
 
@@ -169,6 +168,11 @@ onMount(async() => {
         color: white;
     }
 
+    #sendEmail {
+        margin-top: 4px;
+        font-size: 12px;
+    }
+
     #msg {
         border: 2px solid gray;
         background-color: silver;
@@ -219,7 +223,7 @@ onMount(async() => {
 
     .qaContainer {
         margin: 8px 0;
-        background: rgb(0,0,0,0.1);
+        background: rgb(0,0,0,0.2);
         border-radius: 20px;
         padding: 10px 5px;
     }
@@ -279,6 +283,11 @@ onMount(async() => {
         #sendTitle {
             margin-bottom: 20px;
             font-size: 12px;
+        }
+
+        #sendEmail {
+            font-size: 6px;
+            margin-top: 2px;
         }
 
         #msg {

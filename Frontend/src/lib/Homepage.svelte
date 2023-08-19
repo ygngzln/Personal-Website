@@ -29,7 +29,7 @@
     });
     let msgs:any[] = [
         {
-            msg: "This is my website. This website is made with Svelte and hosted with Vercel. Uses a JS Rest API for a backend because it's simple. Feel free to leave a suggestion or tell me if there's a bug or somewhere I could improve on! I'm always looking for things to fix!",
+            msg: "This is my website. This website is made with Svelte and hosted with Vercel. Uses a NodeJS Rest API for a backend because it's simple. Feel free to leave a suggestion or tell me if there's a bug or somewhere I could improve on! I'm always looking for things to fix!",
             name: "About The Website"
         },
         {
@@ -47,23 +47,23 @@
             <div id="title">
                 Yigeng Lin
             </div>
-            Some Freshman Who's {splashmsgs[Math.floor(Math.random()*splashmsgs.length)]} <br>
+            Some Sophomore Who's {splashmsgs[Math.floor(Math.random()*splashmsgs.length)]} <br>
             Currently Inhabits California <br>
             Funny Cats 👍 <br>
-            <div id="currentproject">
-                Currently Nonstop Annoying Someone With His Next Project...
-            </div>
         </div>
     </div>
-</div>
+<!-- </div> -->
 
-<div id="currentprojectImage">
+<!-- <div id="currentprojectImage"> -->
     {#if loaded}
-        <div class="rel" in:fly={{y:-150, duration: 500}}>
-            <div class="opacity">
+        <!-- <div class="rel" in:fly={{y:-150, duration: 500}}> -->
+            <div class="opacity2">
+                <span id="currentproject">
+                    CURRENTLY WORKING ON:
+                </span>
                 <CurrentProj currentproject={currentproject}/>
             </div>
-        </div>
+        <!-- </div> -->
     {:else}
     <div id="staticspace">
         {#if err}
@@ -73,13 +73,15 @@
         {/if}
     </div>
     {/if}
-</div>
+<!-- </div> -->
 
 <span class="tabs" in:fly={{x:-500, duration: 350}}>
     {#each msgs as msg}
         <Hometab tabmsg={msg.name} msg={msg.msg}/>
     {/each}
 </span>
+
+</div>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=PT+Sans');
@@ -111,7 +113,8 @@
         width: 100%;
         text-align: center;
         padding: 10px 0 10px 0;
-        background: url('../assets/space.jpeg');
+        background: url('../assets/pc.png');
+        background-size: cover;
     }
 
     .rel {
@@ -123,12 +126,23 @@
     }
 
     .opacity {
-        background-color: rgb(0,0,0,0.45);
+        background-color: rgb(0,0,0,0.55);
         color: white;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 8px;
+        padding: 4em;
+    }
+
+    .opacity2 {
+        background-color: rgb(0,0,0,0.6);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 2em 2em 2em 2em;
+        border-radius: 4em;
     }
 
     #title {
@@ -145,8 +159,9 @@
     }
 
     #currentproject {
-        font-size: 20px;
-        margin-top: 40px;
+        font-size: 40px;
+        margin-top: 25px;
+        margin-bottom: 10px;
         color: red;
         font-family: 'Aboreto', cursive;
     }
@@ -170,6 +185,10 @@
 
         .opacity {
             padding: 4px;
+        }
+
+        .opacity2 {
+            margin: 14px;
         }
 
         #title {

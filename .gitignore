@@ -18,8 +18,8 @@ nodemon.json
 vercel.json
 
 # Editor directories and files
-.vscode/*
-.vscode/
+!.vscode/*
+!.vscode/
 !.vscode/extensions.json
 .idea
 .DS_Store
@@ -30,3 +30,5 @@ vercel.json
 *.sw?
 .vercel
 node_modules
+nodemon.json
+vercel.json
