@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    let animation: number = Math.floor(Math.random()*3)+1; //1-3 Inclusive
+    let animation: number = Math.floor(Math.random()*3)+1;
     if(animation == 1) {
         animation = Math.floor(Math.random()*3)+1;
     }else{
@@ -16,14 +16,12 @@
 </script>
 
 <div id="case">
-<span id="load" bind:this={loadFull}>
-    <span id="half1" bind:this={load1}>Load</span><span id="half2" bind:this={load2}>ing...</span>
-</span>
-<div id="grr">(May take up to a minute if data is starting up...)</div>
+    <span id="load" bind:this={loadFull}>
+        <span id="half1" bind:this={load1}>Load</span><span id="half2" bind:this={load2}>ing...</span>
+    </span>
+    <div id="grr">(May take up to a minute if data is starting up...)</div>
 </div>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
-
     #case {
         display: flex;
         flex-direction: column;
@@ -175,16 +173,16 @@
         25% {
             border-bottom: 4px double white;
             border-left: 4px double white;
-            border-radius: 20px 20px 5px 1em;
-            padding: 0 5px 8px 30px;
+            border-radius: 1rem 1rem 5px 1em;
+            padding: 0 5px 0.4rem 1.5rem;
             margin-right: 5px;
         }
         75% {
             border-bottom: 4px double white;
             border-left: 4px double white;
-            border-radius: 20px 20px 5px 1em;
-            padding: 0 5px 8px 45px;
-            margin-right: 10px;
+            border-radius: 1rem 1rem 5px 1em;
+            padding: 0 0.25rem 0.4rem 2.25rem;
+            margin-right: 0.5rem;
         }
     }
 
@@ -192,30 +190,30 @@
         25% {
             border-right: 4px double white;
             border-bottom: 4px double white;
-            border-radius: 20px 20px 1em 5px;
-            padding: 0 30px 8px 5px;
-            margin-left: 5px;
+            border-radius: 1rem 1rem 1em 5px;
+            padding: 0 1.5rem 0.4rem 0.25rem;
+            margin-left: 0.25rem;
             
         }
         75% {
             border-right: 4px double white;
             border-bottom: 4px double white;
-            border-radius: 20px 20px 1em 5px;
-            padding: 0 45px 8px 5px;
-            margin-left: 10px;
+            border-radius: 1rem 1rem 1em 5px;
+            padding: 0 2.25rem 0.4rem 5px;
+            margin-left: 0.5rem;
         }
     }
 
     @keyframes loadh34 {
         25% {
             background: rgb(255, 255, 255, 0.6);
-            border-radius: 20px 20px 1em 1em;
-            padding-bottom: 8px;
+            border-radius: 1rem 1rem 1em 1em;
+            padding-bottom: 0.4rem;
         }
         75% {
             background: rgb(255, 255, 255, 0.2);
-            border-radius: 20px 20px 1em 1em;
-            padding-bottom: 8px;
+            border-radius: 1rem 1rem 1em 1em;
+            padding-bottom: 0.4rem;
         }
     }
 </style>

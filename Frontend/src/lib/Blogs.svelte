@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Router, Link, Route } from "svelte-navigator";
+    import { Link } from "svelte-navigator";
     import games from '../assets/games.png'
     import woah2 from '../assets/woah2.png'
 </script>

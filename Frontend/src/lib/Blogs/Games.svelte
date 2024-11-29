@@ -59,7 +59,7 @@
         justify-content: center;
         letter-spacing: 0.05em;
         font-family: 'Qarkine';
-        font-size: 7rem;
+        font-size: 8vw;
         color: white;
         text-shadow: 0.3rem 0.3rem 1px rgb(58, 58, 58);
     }

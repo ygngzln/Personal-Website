@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Router, Link, Route } from "svelte-navigator";
+    import { Link } from "svelte-navigator";
 
     const overviewText = "Four years ago, I had no idea how to pack my backpack for a hike or even set up a simple tent. Now, thanks to the experience from being a volunteer at White Stag Leadership Development Camp in Monterey for a few years, I’ve learned outdoor skills like those and much, much more (especially leadership skills of course)."
     const lastText = "As a volunteer, I attend most monthly outdoors meetings and help my patrolmates with planning the summer week of camp. White Stag is a place where you get to see people shine, grow, and share surreal moments. Although sometimes it is hard work and struggles, we always find a way through it. \nYou can find their website by searching up White Stag Monterey."
@@ -28,7 +28,7 @@
         justify-content: center;
         letter-spacing: 0.05em;
         font-family: 'Qarkine';
-        font-size: 7rem;
+        font-size: 8vw;
         color: white;
         text-shadow: 0.2rem 0.2rem 1px black;
     }

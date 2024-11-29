@@ -3,17 +3,15 @@
 </main>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap');
-    
     div {
         width: 100%;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        letter-spacing: 15px;
+        letter-spacing: 0.75rem;
         position: fixed;
-        font-size: 95px;
+        font-size: 4.9rem;
         font-weight: bold;
         text-align: middle;
         background-color: black;
@@ -22,7 +20,7 @@
     }
     
     div > span {
-        letter-spacing: 5px;
+        letter-spacing: 0.25rem;
     }
 
     .u {
@@ -39,29 +37,29 @@
 
     @keyframes up {
         0% {
-            margin-bottom: 15px
+            margin-bottom: 0.6rem
         }
 
         50% {
-            margin-bottom: -15px
+            margin-bottom: -0.6rem
         }
 
         100% {
-            margin-bottom: 15px
+            margin-bottom: 0.6rem
         }
     }
 
     @keyframes down {
         0% {
-            margin-top: 15px
+            margin-top: 0.6rem
         }
 
         50% {
-            margin-top: -15px
+            margin-top: -0.6rem
         }
 
         100% {
-            margin-top: 15px
+            margin-top: 0.6rem
         }
     }
 </style>

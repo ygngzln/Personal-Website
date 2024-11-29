@@ -5,6 +5,7 @@ import DataLoading from "./DataLoading.svelte";
 import sanitize from 'mongo-sanitize';
 
 let msg:HTMLTextAreaElement;
+let err:HTMLDivElement;
 let stringstart:string;
 if(import.meta.env.VITE_NODE_ENV === "development") {
     stringstart = "http://localhost:4000/"
@@ -41,12 +42,26 @@ function repeatedLetter(str:String) {
     return false;
 }
 
+function checkIssue(str:String):number {
+    if(str.trim() === ""){ return 1; }
+    if(str.replaceAll(' ', '').length < 6){ return 2; }
+    if(repeatedLetter(msg.value)){ return 3; }
+    if(!buttonLocal()) { return 4; }
+    return 0;
+}
+
+const errorMsgs = ['Empty message!', 'Message too short!', 'Too many repeated letters!', 'You just sent a message recently!']
+
 function send(){
-    console.log(msg.value)
-    if(msg.value.trim() === ""){ return; }
-    if(msg.value.replaceAll(' ', '').length < 6){ return; }
-    if(repeatedLetter(msg.value)){ return; }
-    if(!buttonLocal()) { return; }
+    let num:number = checkIssue(msg.value)
+    if(num) {
+        err.innerHTML = "Failure to send: " + errorMsgs[num-1];
+        err.style.padding = "0.2rem 0"
+        return;
+    }else{
+        err.innerHTML = '';
+        err.style.padding = "0";
+    }
 
     msg.value = sanitize(msg.value);
 
@@ -63,7 +78,6 @@ function send(){
     .catch(function(err){
         console.log(err)
     })
-    console.log("????")
     msg.value = ""
 }
 
@@ -84,6 +98,7 @@ onMount(async() => {
 
 <div id="background">
     <div id="title">QNA</div>
+    {#if loaded}
     <grid id="gridbox">
         <div id="textcont">
             <div id="text">
@@ -94,23 +109,23 @@ onMount(async() => {
         </div>
         <div id="inputs">
             <textarea bind:this={msg}></textarea>
+            <div id="error" bind:this={err}></div>
             <div id="buttoncont"><button on:click={send}>Send</button></div>
         </div>
     </grid>
     <div id="qnabox">
-        {#if loaded}
-            {#each qna as entry, x}
-                <div class="q">
-                    {entry.question}
-                </div>
-                <div class="a">
-                    {entry.answer}
-                </div>
-            {/each}
-        {:else}
-            <DataLoading />
-        {/if}
+        {#each qna as entry, x}
+            <div class="q">
+                {entry.question}
+            </div>
+            <div class="a">
+                {entry.answer}
+            </div>
+        {/each}
     </div>
+    {:else}
+        <DataLoading />
+    {/if}
 </div>
 
 <style>
@@ -198,6 +213,16 @@ onMount(async() => {
 
     textarea:focus {
         outline: 4px double black;
+    }
+
+    #error {
+        color: rgb(207, 5, 5);
+        background: rgba(0,0,0,0.4);
+        letter-spacing: 0.1rem;
+        font-family: 'NK57';
+        font-size: 0.8rem;
+        width: 35vw;
+        text-align: center;
     }
 
     #buttoncont {

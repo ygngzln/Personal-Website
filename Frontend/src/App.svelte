@@ -20,12 +20,13 @@
   import H from './assets/he2.png'
 
   let loaded:boolean = false;
-  let pages:boolean = false;
 
-  const url = import.meta.env.VITE_BACKEND + "api/v1/qna";
+  let stringstart:string = import.meta.env.VITE_BACKEND;
+
+  const url = stringstart + "api/v1/projects";
 
   async function wakeup() {
-    const qnatest = await axios.get(url);
+    let projects:any = await axios.get(url);
   }
 
   onMount(() => {
@@ -91,8 +92,10 @@
   </Router>
 {/if}
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Macondo&family=Rajdhani:wght@300&family=Quicksand:wght@300&display=swap&family=DynaPuff&display=swap&family=Playfair+Display&display=swap&family=Aboreto');
   @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Macondo&family=Rajdhani:wght@300&family=Quicksand:wght@300&display=swap&family=DynaPuff&display=swap&family=Playfair+Display&display=swap&family=Aboreto');
+  @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap');
   @font-face {
     font-family: 'Balegah';
     src: url('./assets/Balegah.otf');
@@ -107,7 +110,7 @@
   }
   @font-face {
     font-family: 'Cool';
-    src: url('./assets/coolvetica\ condensed\ rg.otf')
+    src: url('./assets/coolvetica.otf')
   }
   @font-face {
     font-family: 'Energy';
@@ -205,15 +208,6 @@
 
   #title:hover img {
     content: url("./assets/he.png")
-  }
-
-  #nav {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 40rem;
   }
 
   .link {

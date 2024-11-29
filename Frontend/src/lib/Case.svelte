@@ -9,8 +9,9 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <span id="case">
-    <div id="clickable"on:click={openLink}>
-        <div id="imgdiv"><img src={link} alt="Project image" id="img"/></div>
+    <div id="clickable" on:click={openLink}>
+        <!-- svelte-ignore a11y-img-redundant-alt -->
+        <div id="imgdiv"><img src={link} loading="lazy" alt="Project image" id="img"/></div>
         <div id="title">{project.name}</div>
         <div id="dsc">{project.description}</div>
     </div>
@@ -40,9 +41,14 @@
     #imgdiv {
         width: 100%;
         height: 12rem;
-        background: rgb(0,0,0,0.2);
+        background: rgba(0, 0, 0, 0.795);
         border: 0.1rem solid rgba(0, 0, 0, 0.7);
         box-sizing: border-box;
+    }
+
+    #img {
+        width: 100%;
+        height: 100%;
     }
 
     #title {
@@ -56,12 +62,9 @@
         border-left: 0.1rem solid rgba(0, 0, 0, 0.7);
         border-right: 0.1rem solid rgba(0, 0, 0, 0.7);
         box-sizing: border-box;
-    }
-
-    #img {
-        width: 100%;
-        height: 100%;
-        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     #dsc {
@@ -82,18 +85,13 @@
 
     @media screen and (max-width: 414px) {
         #case {
-            width: 90%;
-            border: 16px groove cyan;
+            padding: 2rem 1rem;
         }
-
-        #imgdiv {
-            height: 220px;
+        #title {
+            height: 3.8rem;
         }
-
         #dsc {
-            font-size: 16px;
-            padding: 3px 4px;
-            max-height: 100px;
+            letter-spacing: 0.01rem;
         }
     }
 </style>

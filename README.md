@@ -8,6 +8,13 @@ You can contact me at ygngzln@gmail.com. <br>
 **Credits:**
 Programmed by me. Heavy graphic design aid by another person who prefers to remain anonymous. All background images from Pinterest.
 
+### 2.2 (11/29/2024) - Patch 2
+- **Blogs Page Fix** - Fixed an error with the fonts being wonky on mobile
+- Fixed a font not loading
+- **Cleanup** - Deleted more unnecessary fonts, moved some stranded fonts over to main file
+- Mobile issues - Fixed some minor mobile issues
+- **QNA** - Quality of life for suggestions text (prevented access before data load and err messages if your message fails to go through filter)
+
 ### 2.1 (11/28/2024) - Patch 1
 - **Blogs Page Fix** - Fixed an error with the images not loading
 - **Cleanup** - Assets page cleanup for unnecessary assets, fonts deletion for unused fonts, changed a font name to match file name
