@@ -26,8 +26,6 @@
     #background {
         width: 100%;
         height: 100%;
-        /* background: url('../../assets/sunrays.jpg');
-        background-size: cover; */
         background-color: black;
         padding-top: 0.5rem
     }

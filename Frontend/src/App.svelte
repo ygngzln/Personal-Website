@@ -92,18 +92,7 @@
 {/if}
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Macondo&family=Rajdhani:wght@300&family=Quicksand:wght@300&display=swap&family=DynaPuff&display=swap&family=Playfair+Display&display=swap&family=Aboreto');
-  @import url('https://fonts.googleapis.com/css2?family=PT+Sans');
-  @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Montserrat:wght@100&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Marhey&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
-  @font-face {
-    font-family: 'MatSaleh';
-    src: url('./assets/matsaleh.otf');
-  }
   @font-face {
     font-family: 'Balegah';
     src: url('./assets/Balegah.otf');
@@ -113,64 +102,36 @@
     src: url('./assets/chicken.otf');
   }
   @font-face {
-    font-family: 'Dunkin';
-    src: url('./assets/Dunkin.otf');
-  }
-  @font-face {
     font-family: 'ChocoShake';
     src: url('./assets/chocoshake.otf');
-  }
-  @font-face {
-    font-family: 'Modernline';
-    src: url('./assets/modernline.otf');
-  }
-  @font-face {
-    font-family: 'Maytra';
-    src: url('./assets/Maytra.otf');
-  }
-  @font-face {
-    font-family: 'Mirage';
-    src: url('./assets/miragethin.otf');
-  }
-  @font-face {
-    font-family: 'Qarkine';
-    src: url('./assets/Qarkine.otf');
-  }
-  @font-face {
-    font-family: 'Stroyed';
-    src: url('./assets/Stroyed.otf')
-  }
-  @font-face {
-    font-family: 'Midnight';
-    src: url('./assets/Energy.otf');
-  }
-  @font-face {
-    font-family: 'Sunflower';
-    src: url('./assets/sunflower.otf')
-  }
-  @font-face {
-    font-family: 'Auto';
-    src: url('./assets/Autography.otf');
-  }
-  @font-face {
-    font-family: 'Celt';
-    src: url('./assets/Celt.ttf');
   }
   @font-face {
     font-family: 'Cool';
     src: url('./assets/coolvetica\ condensed\ rg.otf')
   }
   @font-face {
-    font-family: 'Gothic';
-    src: url('./assets/gothic.otf');
+    font-family: 'Energy';
+    src: url('./assets/Energy.otf');
+  }
+  @font-face {
+    font-family: 'Mirage';
+    src: url('./assets/miragethin.otf');
+  }
+  @font-face {
+    font-family: 'NK57';
+    src: url("./assets/nk57cdrg.otf")
   }
   @font-face {
     font-family: 'Nostalgia';
     src: url('./assets/nostalgia.ttf')
   }
   @font-face {
-    font-family: 'NK57';
-    src: url("./assets/nk57cdrg.otf")
+    font-family: 'Qarkine';
+    src: url('./assets/Qarkine.otf');
+  }
+  @font-face {
+    font-family: 'Sunflower';
+    src: url('./assets/sunflower.otf')
   }
 
   :global(body) {

@@ -63,7 +63,7 @@
         box-sizing: border-box;
         color: rgb(3, 3, 73);
         text-align: center;
-        font-family: "Midnight";
+        font-family: "Energy";
         letter-spacing: 0.1em;
         text-shadow: 0 0 25px white, 0 0 4px rgba(0, 34, 255, 0.628);
     }

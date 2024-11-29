@@ -1,19 +1,21 @@
 <script lang="ts">
     import { Router, Link, Route } from "svelte-navigator";
+    import games from '../assets/games.png'
+    import woah2 from '../assets/woah2.png'
 </script>
 <div id="background">
     <div id="blogTitle"> Blogs </div>
     <div id="blogContainer">
         <div class="blogLink">
             <Link to="/Blogs/Games">
-                <img class="blogImg" src="src/assets/games.png" alt="Games"/>
+                <img class="blogImg" src={games} alt="Games"/>
                 <h2>Gaming ˙✧˖°🎮⋆｡˚</h2>
                 <h3>My experiences with the multiple games I've played over the years and my opinions on them</h3>
             </Link>
         </div>
         <div class="blogLink">
             <Link to="/Blogs/Camp">
-            <img class="blogImg" src="src/assets/woah2.png" alt="Camp"/>
+            <img class="blogImg" src={woah2} alt="Camp"/>
             <h2>☾˖✧°𖤓🏕 Camping and White Stag Leadership</h2>
             <h3>Experience of being on Monterey White Stag Youth Leadership and the camping opportunities it gives</h3>
             </Link>
