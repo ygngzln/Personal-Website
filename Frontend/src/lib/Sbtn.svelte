@@ -2,6 +2,7 @@
     export let stuff:any;
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <svg width="35" height="35" class="otherBtn" on:click={function(){window.open(stuff.link)}}>
     <image href={stuff.img} width="35" height="35"><title>{stuff.title}</title></image>
 </svg>

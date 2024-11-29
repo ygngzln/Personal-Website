@@ -11,6 +11,7 @@
 </script>
 
 <span id="main">
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div id="tabTitle" on:click={() => click()}>{tabmsg}</div>
   {#if open}
     <div id="tabButton" transition:fly|local={{y: 100, duration: 400, easing: circIn}}>
@@ -20,8 +21,6 @@
 </span>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
-
   #main {
     display: table-cell;
     vertical-align: top;

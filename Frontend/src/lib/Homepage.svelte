@@ -1,214 +1,163 @@
 <script lang="ts">
-    import Hometab from './Hometab.svelte'
-    import CurrentProj from './CurrentProj.svelte'
-    import {createEventDispatcher, onMount} from 'svelte'
-    import DataLoading from './DataLoading.svelte'
-    import axios from 'axios'
+    import { Link } from "svelte-navigator";
     import {fly} from 'svelte/transition'
-    
-    const dispatcher = createEventDispatcher()
-    let ss: string;
-    if(import.meta.env.VITE_NODE_ENV === "development") {
-        ss = "http://localhost:4000/"
-    } else {
-        ss = import.meta.env.VITE_BACKEND
-    }
-    let uri: string = ss + 'api/v1/currentproject/'
-    let err: boolean = false;
-
-    let currentproject: any;
-    let loaded:boolean = false;
-    onMount(async() => {
-        window.scrollTo(0,0);
-        currentproject = await axios.get(uri).catch((error) => {
-            err = true;
-        });
-        if(err) return;
-        currentproject = currentproject.data[0];
-        loaded = true;
-    });
-    let msgs:any[] = [
-        {
-            msg: "This is my website. This website is made with Svelte and hosted with Vercel. Uses a NodeJS Rest API for a backend because it's simple. Feel free to leave a suggestion or tell me if there's a bug or somewhere I could improve on! I'm always looking for things to fix!",
-            name: "About The Website"
-        },
-        {
-            msg: "I enjoy coding. I know JS and I intend on expanding mostly C++ and maybe Swift. I also want to become skilled in competitive programming because I'm currently not the best at it but am always looking to improve. Have a good day! :)",
-            name: "About Me"
-        }
-    ]
-
-    let splashmsgs:string[] = ["Burning His Eyes Out By Programming", "Petting A Really Large Felis Catus", "Consuming Not Water", "Adjusting That One Image", "Deciding What Project To Make"]
 </script>
 
 <div id="image" in:fly={{x:-500, duration: 350}}>
-    <div class="opacity">
-        <div id="text">
-            <div id="title">
-                Yigeng Lin
-            </div>
-            Some Sophomore Who's {splashmsgs[Math.floor(Math.random()*splashmsgs.length)]} <br>
-            Currently Inhabits California <br>
-            Funny Cats 👍 <br>
+    <span id="title">
+        Yigeng Lin
+    </span>
+    <span id="sub">
+        Programmer
+    </span>
+    <hr>
+    <div id="frame">
+        <div id="projects">
+            <Link to="/Projects">My Projects</Link>
         </div>
+        <div id="abouttext">
+            <Link to="/About">More About Me!</Link>
+        </div>
+        <div id="image2">Pictures!</div>
     </div>
-<!-- </div> -->
-
-<!-- <div id="currentprojectImage"> -->
-    {#if loaded}
-        <!-- <div class="rel" in:fly={{y:-150, duration: 500}}> -->
-            <div class="opacity2">
-                <span id="currentproject">
-                    CURRENTLY WORKING ON:
-                </span>
-                <CurrentProj currentproject={currentproject}/>
-            </div>
-        <!-- </div> -->
-    {:else}
-    <div id="staticspace">
-        {#if err}
-            <div class="error">There was an error retrieving data. Try reloading. If this problem persists, please tell me.</div>
-        {:else}
-            <DataLoading />
-        {/if}
-    </div>
-    {/if}
-<!-- </div> -->
-
-<span class="tabs" in:fly={{x:-500, duration: 350}}>
-    {#each msgs as msg}
-        <Hometab tabmsg={msg.name} msg={msg.msg}/>
-    {/each}
-</span>
-
 </div>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=PT+Sans');
-
-    #currentprojectImage {
-        min-height: 6em;
-        position: relative;
-        text-align: center;
-        background: url('../assets/blackbrick.jpeg');
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .tabs {
-        margin-top: 1.5em;
-        position: relative;
-        min-height: 263.5px;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-        display: flex;
-        justify-content: center;
-    }
-
     #image {
         position: relative;
-        width: 100%;
+        max-width: 100%;
         text-align: center;
-        padding: 10px 0 10px 0;
-        background: url('../assets/pc.png');
+        background: url("../assets/ar.jpeg");
         background-size: cover;
-    }
-
-    .rel {
-        background: url('../assets/t.jpeg');
-        background-size: cover;
-        position: relative;
-        text-align: center;
-        width: 100%;
-    }
-
-    .opacity {
-        background-color: rgb(0,0,0,0.55);
-        color: white;
+        background-position-y: 100%;
+        image-rendering: crisp-edges;
+        color:white;
         display: flex;
         align-items: center;
-        justify-content: center;
-        padding: 4em;
-    }
-
-    .opacity2 {
-        background-color: rgb(0,0,0,0.6);
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         flex-direction: column;
-        margin: 2em 2em 2em 2em;
-        border-radius: 4em;
+        justify-content: center;
+        padding: 1em 2em 3em 2em;
+    }
+
+    #image > hr {
+        width: 75%;
+        margin-bottom: 2%;
+        height: 0.075em;
+        background: black;
     }
 
     #title {
-        font-size: 80px;
-        font-family: 'BhuTuka Expanded One', cursive;
-        font-weight: bold;
-        margin-bottom: 15px;
+        font-size: 5.4em;
+        font-family: 'Sunflower';
+        font-weight: lighter;
+        letter-spacing: 0.1em;
+        text-shadow: -2px -2px 0 rgb(0, 0, 0), 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000;
     }
 
-    #text {
-        font-size: 39px;
-        line-height:140%;
-        font-family: 'PT Sans', sans-serif;
+    #sub {
+        margin: 0.5% 0;
+        font-size: 1.8rem;
+        text-shadow: -1.4px -1.4px 0.2px rgb(91, 91, 91), 1.4px -1.4px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        letter-spacing: 0.2em;
+        color: rgb(153, 197, 212);
+        font-family: 'ChocoShake';
     }
 
-    #currentproject {
-        font-size: 40px;
-        margin-top: 25px;
-        margin-bottom: 10px;
-        color: red;
-        font-family: 'Aboreto', cursive;
+    #frame {
+        width: 92%;
+        display: grid;
+        grid-template-columns: 5fr 2fr 3fr;
+        grid-template-rows: 3fr 3fr 4fr;
+        grid-template-areas:
+        "p i i"
+        "t i i"
+        "e m m";
+        height: 38rem;
+        gap: 2%;
+        margin-top: 1rem;
     }
 
-    #staticspace {
-        text-align: center;
+    #projects {
+        grid-area: p;
+        background: url('../assets/projects.png');
+        background-size:cover;
+        background-position-y: 18%;
+        background-repeat: no-repeat;
+        font-size: 2.4em;
+        font-family: "Cool";
+        font-weight: lighter;
+        outline: 0.1rem solid rgb(141, 160, 168);
+        text-decoration: none;
+        border-radius: 15px;
+        text-shadow: -0.05rem -0.05rem 0.1rem darkblue, 0.05rem 0.05rem 0.1rem black, 0.05rem -0.05rem 0.1rem black, -0.05rem 0.05rem 0.1rem black;
+        transition: all 0.3s linear;
     }
 
-    .error {
-        text-align: center;
+    #projects > :global(a), #abouttext > :global(a) {
+        height: 100%;
+        width: 100%;
         color: white;
-        background: rgb(0, 0, 0, 0.3);
-        font-family: 'Aboreto', cursive;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #projects:hover {
+        cursor: pointer;
+        animation: hoverInfo 1s;
+        border-radius: 10px;
+        font-size: 2.7em;
+        transition: all 0.3s linear;
+    }
+
+    #abouttext {
+        grid-area: t;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        background: url('../assets/wah.png');
+        background-size: cover;
+        background-position-y: 20%;
+        text-decoration: none;
+        color: white;
+        text-shadow: -0.1rem -0.1rem 0 black;
+        font-size: 1.9em;
+        font-family: 'Cool';
+        transition: all 0.5s linear;
+    }
+
+    #abouttext:hover {
+        cursor: pointer;
+        animation: hoverInfo 1s;
+        border-radius: 10px;
+        font-size: 2.1em;
+        transition: all 0.5s linear;
+    }
+
+    #image2 {
+        background: url("../assets/woah.png");
+        grid-area: i;
+        background-size: cover;
+        cursor: pointer;
+        border-width: 0.2em 0.25em;
+        border-style: double groove;
+        border-color: white black;
+        border-radius: 2em;
+        font-family: "Cool";
+        color: white;
+        font-size: 1.5em;
+        letter-spacing: 0.25em;
+        padding-top: 0.5em;
+        text-align: center;
+        text-shadow: 0.075em 0.075em 1px black;
     }
 
     @media screen and (max-width: 414px) {
-        #image {
-            text-align: center;
-            padding: 5px 0 5px 0;
-        }
-
-        .opacity {
-            padding: 4px;
-        }
-
-        .opacity2 {
-            margin: 14px;
-        }
-
-        #title {
-            font-size: 42px;
-        }
-
-        #text {
-            font-size: 24px;
-            font-family: 'PT Sans', sans-serif;
-        }
-
-        #currentproject {
-            font-size: 16px;
-            margin-top: 24px;
-            color: red;
-            font-family: 'Aboreto', cursive;
-        }
-
-        .tabs {
-            margin-top: 1em;
+        #frame {
+            grid-template-rows: 1fr 1fr 1.2fr;
+            grid-template-columns: 4fr 2fr 3fr;
+            height: 45vh;
         }
     }
 </style>

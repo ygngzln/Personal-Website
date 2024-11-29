@@ -1,87 +1,83 @@
 <script lang="ts">
     export let project:any;
     let link = import.meta.env.VITE_BACKEND + "api/v1/imgs/" + project.img
+
+    function openLink() {
+        window.open(project.project, '_blank').focus();        
+    }
 </script>
 
-<div id="case">
-    <div id="project">{project.name}</div>
-    <div id="imgdiv"><img src={link} alt="Project did not load" id="img"/></div>
-    <div id="side">
-        <span>Date: <br/>{project.date}</span>
-        <span>Language: <br/>{project.language}</span>
-        <span>Status: <br/>{project.status}</span>
-        <span>Type: <br/>{project.type}</span>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<span id="case">
+    <div id="clickable"on:click={openLink}>
+        <div id="imgdiv"><img src={link} alt="Project image" id="img"/></div>
+        <div id="title">{project.name}</div>
+        <div id="dsc">{project.description}</div>
     </div>
-    <div id="dsc">{project.description}</div>
-    <div id="projLink"><a id="l" target="_blank" rel="noreferrer" href={project.project}>- Project Link -</a></div>
-</div>
+</span>
 
 <style>
     #case {
+        width: 100%;
+        height: 100%;
         position: relative;
-        width: 50%;
-        text-align: center;
-        border: 20px groove cyan;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        padding: 1rem 2rem;
     }
 
-    #project {
-        font-size: 30px;
-        font-weight: bold;
-        background-color: aquamarine;
-        border: 6px solid blue;
-        font-family: 'Dynapuff', monospace;
+    #clickable {
+        display: inline-block;
+    }
+
+    #clickable:hover {
+        cursor: pointer;
     }
 
     #imgdiv {
         width: 100%;
-        height: 400px;
+        height: 12rem;
         background: rgb(0,0,0,0.2);
+        border: 0.1rem solid rgba(0, 0, 0, 0.7);
+        box-sizing: border-box;
+    }
+
+    #title {
+        font-size: 1.5rem;
+        width: 100%;
+        font-weight: bold;
+        color: rgb(160, 172, 225);
+        background-color: rgba(30, 80, 107, 0.839);
+        text-shadow: 0px 0px 8px rgb(14, 31, 88);
+        font-family: 'Dynapuff', monospace;
+        border-left: 0.1rem solid rgba(0, 0, 0, 0.7);
+        border-right: 0.1rem solid rgba(0, 0, 0, 0.7);
+        box-sizing: border-box;
     }
 
     #img {
         width: 100%;
         height: 100%;
         position: relative;
-        z-index: -1;
-    }
-    
-    #side {
-        font-size: 20px;
-        border: 4px solid darkblue;
-        background-color: cyan;
-        padding: 6px 0;
-        display: flex;
-        justify-content: space-evenly;
     }
 
     #dsc {
-        font-size: 20px;
-        background-color: mediumaquamarine;
-        padding: 6px 4px;
-        max-height: 140px;
+        font-size: 1rem;
+        background-color: rgb(132, 171, 194);
+        padding: 0.3rem 0.2rem;
+        height: 5.5rem;
         overflow-y: auto;
+        font-family: 'Cool';
+        letter-spacing: 0.09em;
+        box-sizing: border-box;
+        border: 0.1rem solid rgba(0, 0, 0, 0.7);
     }
 
     #dsc::-webkit-scrollbar {
-        width: 1px;
-    }
-
-    #projLink {
-        background-color: black;
-    }
-    
-    #l {
-        color: white;
-        font-size: 15px;
-        padding: 10px 0;
-        text-decoration: none;
-        position: relative;
-        width: 100%;
-        display: block;
-    }
-
-    #l:hover {
-        font-size: 16px;
+        width: 0.75px;
     }
 
     @media screen and (max-width: 414px) {
@@ -90,33 +86,14 @@
             border: 16px groove cyan;
         }
 
-        #project {
-            font-size: 32px;
-            border: 4px solid blue;
-        }
-
         #imgdiv {
             height: 220px;
-        }
-
-        #side {
-            font-size: 14px;
-            padding: 6px 2px;
         }
 
         #dsc {
             font-size: 16px;
             padding: 3px 4px;
             max-height: 100px;
-        }
-
-        #l {
-            font-size: 12px;
-            padding: 7.5px 0;
-        }
-
-        #l:hover {
-            font-size: 12.75px;
         }
     }
 </style>

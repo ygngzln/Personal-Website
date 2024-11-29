@@ -32,3 +32,5 @@ vercel.json
 node_modules
 nodemon.json
 vercel.json
+.gitignore
+package-lock.json

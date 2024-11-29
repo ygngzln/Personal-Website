@@ -9,45 +9,44 @@
     let load1:HTMLElement, load2:HTMLElement, loadFull:HTMLElement;
 
     onMount(async() => {
-        if(animation == 1) {
-            load1.style.animation = loadFull.className + "-loadh1 3.5s infinite";
-            load2.style.animation = loadFull.className + "-loadh2 3.5s infinite";
-        }else if(animation == 2) {
-            loadFull.style.animation = loadFull.className + "-loadh12 12s infinite";
-            loadFull.style.animationTimingFunction = "ease-in-out"
-        }else if(animation == 3) {
-            load1.style.animation = loadFull.className + "-loadh13 3.5s infinite";
-            load2.style.animation = loadFull.className + "-loadh23 3.5s infinite";
-        }else if(animation == 4) {
-            load1.style.animation = loadFull.className + "-loadh14 3.5s infinite";
-            load2.style.animation = loadFull.className + "-loadh24 3.5s infinite";
-            loadFull.style.animation = loadFull.className + "-loadh34 3.5s infinite";
-        }
+        load1.style.animation = loadFull.className + "-loadh14 3.5s infinite";
+        load2.style.animation = loadFull.className + "-loadh24 3.5s infinite";
+        loadFull.style.animation = loadFull.className + "-loadh34 3.5s infinite";
     })
 </script>
 
+<div id="case">
 <span id="load" bind:this={loadFull}>
     <span id="half1" bind:this={load1}>Load</span><span id="half2" bind:this={load2}>ing...</span>
 </span>
-<div id="grr">(May take up to 2 minutes if data is starting up...)</div>
-
+<div id="grr">(May take up to a minute if data is starting up...)</div>
+</div>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+    #case {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
 
     #load {
         color: white;
         font-family: 'Michroma', sans-serif;
-        font-size: 40px;
-        max-height: 60px;
+        font-size: 3vw;
+        max-height: 3rem;
         background: rgb(0, 0, 0, 0.2);
+
     }
 
     #grr {
         color: white;
         font-family: 'Michroma', sans-serif;
         background: rgb(0, 0, 0, 0.2);
-        margin-top: 10px;
-        font-size: 12px;
+        font-size: 0.6rem;
+        margin: 0.75rem 0;
     }
 
     @keyframes loadh1 {

@@ -2,175 +2,288 @@
   import {onMount} from 'svelte'
   import {fly} from 'svelte/transition'
   import {circInOut, elasticOut} from 'svelte/easing'
-  import { Router, Link, Route } from "svelte-routing";
+  import { Router, Link, Route } from "svelte-navigator";
+  import axios from 'axios'
 
   import Homepage from './lib/Homepage.svelte'
-  import Blog from './lib/Blog.svelte'
+  import Updates from './lib/Updates.svelte'
+  import Blogs from './lib/Blogs.svelte'
+  import GamesBlog from './lib/Blogs/Games.svelte'
+  import CampBlog from './lib/Blogs/Camp.svelte'
+  import QNA from './lib/Qna.svelte'
   import About from './lib/About.svelte'
   import Projects from './lib/Projects.svelte'
   import Preload from './lib/Preload.svelte'
   import Sbtn from './lib/Sbtn.svelte'
 
   import G from './assets/github.png'
-  import R from './assets/repllogo.png'
   import H from './assets/he2.png'
 
   let loaded:boolean = false;
   let pages:boolean = false;
 
+  const url = import.meta.env.VITE_BACKEND + "api/v1/qna";
+
+  async function wakeup() {
+    const qnatest = await axios.get(url);
+  }
+
   onMount(() => {
+    wakeup();
     loaded = true;
   })
 </script>
 
 {#if !loaded}
   <Preload />
-{/if}
-
-<Router url="">
-  {#if loaded}
-  <div id="head">
-    <div id="title">
-      <Link to="/"><img src={H} alt="Logo didn't load." width=45 height=45/>Yigeng L.</Link>
-    </div>
-    <div id="pageContainer">
-      {#if pages}
-          <span id="nav">
-            <div class="link" transition:fly="{{ y: -300, easing: elasticOut, duration:1150 }}">
-              <Link to="/Blog">Blog & Updates</Link>
-            </div>
-            <div class="link" transition:fly="{{ y: -200, easing: circInOut, duration:400 }}">
-              <Link to="/Projects">Projects</Link>
-            </div>
-            <div class="link" transition:fly="{{ y: -100, easing: circInOut, duration:200 }}">
-              <Link to="/About">About Me</Link>
-            </div>
-          </span>
-      {/if}
-      <button id="pages" on:click={() => {pages = !pages}}>☰ Pages</button>
-    </div>
-  </div>
-  <div id="pageContent">
-    <Route path="/"><Homepage/></Route>
-    <Route path="About"><About/></Route>
-    <Route path="Blog"><Blog/></Route>
-    <Route path="Projects"><Projects/></Route>
-  </div>
-  <footer>
-    <div id="footerContent">
-      <span id="footerText">Yigeng L. - Hosted With Vercel</span>
-      <span class="normalLinks">
-        <Link to="/">Home</Link>
+{:else}
+  <Router {url}>
+    {#if loaded}
+    <div id="head">
+      <div class="link" transition:fly="{{ y: -100, easing: elasticOut, duration:1250 }}">
         <Link to="/About">About Me</Link>
-        <Link to="/About">QNA/Suggestions/Ask Questions/Report A Bug</Link>
+      </div>
+      <div class="link" transition:fly="{{ y: -200, easing: circInOut, duration:600 }}">
         <Link to="/Projects">Projects</Link>
-        <Link to="/Blog">Blog</Link>
-      </span>
-      <span id="others">
-        <Sbtn stuff={{link: "https://github.com/ygngzln", title:"Github", img: G}} />
-        <Sbtn stuff={{link: "https://replit.com/@yilitcs2", title: "Replit", img:R}} />
-      </span>
-      <div class="mobileLinks">
-        <Link to="/">Home</Link>
-        <Link to="/About">About Me</Link>
-        <Link to="/About">QNA/Suggestions/Ask Questions/Report A Bug</Link>
-        <Link to="/Projects">Projects</Link>
-        <Link to="/Blog">Blog</Link>
+      </div>
+      <div id="title">
+        <Link to="/"><img src={H} alt="Logo didn't load."/>Home</Link>
+      </div>
+      <div class="link" transition:fly="{{ y: -100, easing: circInOut, duration:200 }}">
+        <Link to="/Updates">Updates</Link>
+      </div>
+      <div class="link" transition:fly="{{ y: -250, easing: circInOut, duration:600 }}">
+        <Link to="/Blogs">Blogs</Link>
+      </div>
+      <div class="link" transition:fly="{{ y: -250, easing: elasticOut, duration:1250 }}">
+        <Link to="/QNA">QNA</Link>
       </div>
     </div>
-  </footer>
-  {/if}
-</Router>
-
+    <div id="pageContent">
+      <Route path="/"><Homepage/></Route>
+      <Route path="About"><About/></Route>
+      <Route path="Updates"><Updates/></Route>
+      <Route path="Projects"><Projects/></Route>
+      <Route path="Blogs"><Blogs/></Route>
+      <Route path="Blogs/Games"><GamesBlog/></Route>
+      <Route path="Blogs/Camp"><CampBlog/></Route>
+      <Route path="QNA"><QNA/></Route>
+    </div>
+    <footer>
+      <div id="footerContent">
+        <span id="footerText">
+          Made by Yigeng Lin - Hosted With Vercel
+        <span class="normalLinks">
+          <Link to="/">Home</Link>
+          <Link to="/About">About Me</Link>
+          <Link to="/Projects">Projects</Link>
+          <Link to="/Updates">Updates</Link>
+          <Link to="/Blogs">Blogs</Link>
+          <Link to="/QNA">QNA</Link>
+        </span>
+      </span>
+        <span id="others">
+          <Sbtn stuff={{link: "https://github.com/ygngzln", title:"Github", img: G}} />
+        </span>
+      </div>
+    </footer>
+    {/if}
+  </Router>
+{/if}
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Macondo&family=Rajdhani:wght@300&family=Quicksand:wght@300&display=swap&family=DynaPuff&display=swap&family=Playfair+Display&display=swap&family=Aboreto');
+  @import url('https://fonts.googleapis.com/css2?family=PT+Sans');
+  @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Montserrat:wght@100&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Marhey&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+  @font-face {
+    font-family: 'MatSaleh';
+    src: url('./assets/matsaleh.otf');
+  }
+  @font-face {
+    font-family: 'Balegah';
+    src: url('./assets/Balegah.otf');
+  }
+  @font-face {
+    font-family: 'Chicken';
+    src: url('./assets/chicken.otf');
+  }
+  @font-face {
+    font-family: 'Dunkin';
+    src: url('./assets/Dunkin.otf');
+  }
+  @font-face {
+    font-family: 'ChocoShake';
+    src: url('./assets/chocoshake.otf');
+  }
+  @font-face {
+    font-family: 'Modernline';
+    src: url('./assets/modernline.otf');
+  }
+  @font-face {
+    font-family: 'Maytra';
+    src: url('./assets/Maytra.otf');
+  }
+  @font-face {
+    font-family: 'Mirage';
+    src: url('./assets/miragethin.otf');
+  }
+  @font-face {
+    font-family: 'Qarkine';
+    src: url('./assets/Qarkine.otf');
+  }
+  @font-face {
+    font-family: 'Stroyed';
+    src: url('./assets/Stroyed.otf')
+  }
+  @font-face {
+    font-family: 'Midnight';
+    src: url('./assets/Energy.otf');
+  }
+  @font-face {
+    font-family: 'Sunflower';
+    src: url('./assets/sunflower.otf')
+  }
+  @font-face {
+    font-family: 'Auto';
+    src: url('./assets/Autography.otf');
+  }
+  @font-face {
+    font-family: 'Celt';
+    src: url('./assets/Celt.ttf');
+  }
+  @font-face {
+    font-family: 'Cool';
+    src: url('./assets/coolvetica\ condensed\ rg.otf')
+  }
+  @font-face {
+    font-family: 'Gothic';
+    src: url('./assets/gothic.otf');
+  }
+  @font-face {
+    font-family: 'Nostalgia';
+    src: url('./assets/nostalgia.ttf')
+  }
+  @font-face {
+    font-family: 'NK57';
+    src: url("./assets/nk57cdrg.otf")
+  }
 
   :global(body) {
+    height:100%;
+    max-width: 100%;
     background: black;
-    display: grid;
     margin: 0;
+    font-size: 20px;
   }
 
-  :global(body)::-webkit-scrollbar {
-    width: 4px;
+  :global(html) {
+    scrollbar-color: white black;
+    scrollbar-width: thin;
+    font-size: 20px;
   }
 
-  :global(body)::-webkit-scrollbar-track {
-    background: darkblue;
+  :global(html)::-webkit-scrollbar {
+    width: thin;
   }
 
-  :global(body)::-webkit-scrollbar-thumb {
-    background: rgb(0,0,190);
+  :global(html)::-webkit-scrollbar-track {
+    background: black;
+  }
+
+  :global(html)::-webkit-scrollbar-thumb {
+    background: white;
+  }
+
+  :global(a) {
+    text-decoration: none;
   }
 
   #head {
-    background: linear-gradient(skyblue, deepskyblue);
+    background: linear-gradient(rgb(171, 219, 238),rgb(108, 162, 180));
     width: 100%;
-    height: 50px;
+    height: 3em;
     display: flex;
-    align-items: center;
     flex-direction: row;
-    grid-area: header;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 0.1em solid rgb(110, 110, 110);
+    padding: 0.4em 0;
   }
 
   #title {
-    text-align: center;
-    white-space: nowrap;
     position: relative;
-    display: flex;
-    left: 26px;
+    padding: 0 1rem;
   }
 
   #title > :global(a) {
     display: flex;
     align-items: center;
-    color: rgb(60, 0, 60, 0.8);
-    font-size: 30px;
+    color: rgb(117, 180, 222);
+    text-shadow: 0.02em 0.02em 0 black, 0.02em -0.02em 0 black, -0.02em 0.02em 0 black, -0.02em -0.02em black;
+    font-size: 1.8em;
     font-family: 'Macondo', cursive;
     font-weight: bold;
-    text-decoration: none;
-    padding: 0 4px;
-    position: relative;
-    letter-spacing: 2px;
-    width: 6.6em;
-    height: 50px;
+    height: 90%;
+  }
+
+  #title img {
+    margin-right: 4%;
+    width: 1.5em;
+    height: 1.5em;
   }
 
   #title:hover > :global(a) {
     cursor: pointer;
-    color: rgb(0, 186, 65);
-    background: linear-gradient(to right, darkblue, blue, darkblue);
+    color: #820438cc;
   }
 
-  img {
-    margin-right: 5px;
+  #title:hover img {
+    content: url("./assets/he.png")
   }
 
   #nav {
-    display: inline;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 40rem;
   }
 
   .link {
-    font-size: 20px;
+    font-size: 0.9em;
     font-weight: bolder;
-    font-style: italic;
-    border-radius: 15%;
-    border: 2px solid rgb(91, 153, 192);
-    background-color: rgb(135, 206, 250);
+    border-radius: 3px;
+    border: 0.1em solid rgb(91,153,192);
+    background-color: #87cefa;
     font-family: 'Rajdhani', sans-serif;
-    padding: 0 4.5px;
-    margin-left: 20px;
+    padding: 0 0.3em;
+    margin: 0.06em 0.2em;
+    white-space: nowrap;
     display: inline-block;
+  }
+
+  .link:hover {
+    background-color: #68020e;
+    border: 0.1em solid darkred;
   }
 
   .link > :global(a) {
     color: black;
     text-decoration: none;
+    transition: all 1s;
   }
 
   .link > :global(a):hover {
-    font-size: 21px;
+    color: pink;
+    font-size: 1.1em;
     cursor: pointer;
+    transition: all 0.4s;
   }
 
   .link > :global(a):focus {
@@ -178,225 +291,60 @@
     box-shadow: none;
   }
 
-  #pageContainer {
-    left: 45em;
-    text-align: left;
+  #pageContent {
     position: relative;
-    display: inline-block;
-    vertical-align: text-top;
-    width: 35%;
+    min-height: 90%;
   }
   
-  #pages {
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 4px;
-    color: rgb(0, 96, 96);
-    border: 2px solid darkblue;
-    font-family: 'Rajdhani', sans-serif;
-    background-color: rgb(0, 186, 186);
-    float: right;
-    margin-right: 10px;
-    transition: 1s;
-  }
-
-  #pages:hover {
-    cursor: pointer;
-    color: white;
-    text-shadow: 1px 1px 1px black;
-    transition: text-shadow 1s;
-    border: 2.5px solid black;
-    animation-name: shine;
-    animation-duration: 0.2s;
-  }
-
-  .mobileLinks {
-    display: none;
-  }
-
-  @keyframes shine {
-    0% {
-      background: linear-gradient(
-        30deg, 
-        white 0%, 
-        rgb(0, 186, 186) 25%
-      );
-    }
-
-    25% {
-      background: linear-gradient(
-        30deg, 
-        rgb(0, 186, 186) 0%, 
-        white 25%, 
-        rgb(0, 186, 186) 50%);
-    }
-
-    50% {
-      background: linear-gradient(
-        30deg,
-        rgb(0, 186, 186) 0%, 
-        white 50%, 
-        rgb(0, 186, 186) 75%); 
-    }
-
-    75% {
-      background: linear-gradient(
-        30deg, 
-        rgb(0, 186, 186) 0%, 
-        white 75%, 
-        rgb(0, 186, 186) 100%); 
-    }
-
-    100% {
-      background: linear-gradient(
-        30deg, 
-        rgb(0, 186, 186) 0%, 
-        white 100%); 
-    }
-  }
-
-  #pageContent {
-    grid-area: main;
-    position: relative;
-    min-height: 700px;
-  }
-
   #footerContent {
-    left: 1em;
+    width: 100%;
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
   }
 
-  .mobileLinks > :global(a) {
-    margin: 0 14px;
-    color: black;
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: bold;
+  #footerText {
+    width: 70%;
+    position: relative;
+    padding-left: 0.75em;
+    font-family: monospace;
+    font-size: 0.7em;
   }
 
   .normalLinks > :global(a) {
-    margin: 0 8px;
+    margin: 0 0.4em;
     color: black;
     font-family: 'Rajdhani', sans-serif;
     font-weight: bold;
   }
 
   #others {
-    left: 31.3em;
+    width: 29%;
     position: relative;
-    padding: 5px 0;
+    padding: 0.5em 0;
     display: flex;
     align-items: center;
-  }
-
-  #footerText {
-    position: relative;
-    vertical-align: middle;
-    margin-right: 5px;
-    font-family: monospace;
-    font-size: 14px;
-    color: black;
+    justify-content: right;
   }
 
   footer {
     background-color: white;
-    filter: opacity(0.85);
-    margin-top: 2em;
-    height: 2.75em;
-    grid-area: footer;
+    height: 13%;
     display: flex;
     align-items: center;
     justify-content: left;
   }
   
   @media screen and (max-width: 414px) {
+    :global(body) {
+      font-size: 14px;
+    }
+    :global(html) {
+      font-size: 14px;
+    }
     #title {
-      left: 0px;
-    }
-    #title > :global(a) {
-      color: rgb(60, 0, 60, 0.8);
-      font-size: 15px;
-      padding: 0 2px;
-      letter-spacing: 1.5px;
-      width: 8.5em;
-    }
-    #title:hover > :global(a) {
-      color: rgb(60, 0, 60, 0.8);
-      background: none;
-    }
-    .link {
-      font-size: 9px;
-      padding: 2px 2px;
-      margin-left: 4.5px;
-    }
-    .link > :global(a):hover {
-      font-size: 10px;
-    }
-    #nav {
-      display: flex;
-      align-items: center;
-    }
-    #pageContainer {
-      left: 0;
-      width: 71.5%;
-      display: flex;
-      align-items: center;
-      justify-content: right;
-    }
-    #pages {
-      font-size: 10px;
-      margin-right: 4px;
-      margin-left: 4px;
-      width: 24.5%;
-    }
-    #pages:hover {
-      color: black;
-      text-shadow: none;
-      transition: none;
-      border: 2px solid black;
-      animation: none;
-    }
-
-    #footerText {
-      margin-right: 3px;
-      font-size: 12px;
-    }
-
-    .mobileLinks > :global(a) {
-      font-size: 8px;
-      margin: 0 2px;
-    }
-
-    footer {
-      margin-top: 1em;
-      height: 4em;
-      display: flex;
-      justify-content: center;
-    }
-
-    #footerContent {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      flex-direction: column;
-    }
-
-    #others {
-      left: 0em;
-      padding: 3px 0;
-    }
-
-    .mobileLinks {
-      display: inline-block;
-      left: 0;
-      position: relative
-    }
-
-    .normalLinks {
-      display: none;
+      padding: 0 0.5rem;
     }
   }
 </style>
