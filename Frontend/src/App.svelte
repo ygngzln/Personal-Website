@@ -217,7 +217,6 @@
     border: 0.1em solid rgb(91,153,192);
     background-color: #87cefa;
     font-family: 'Rajdhani', sans-serif;
-    padding: 0 0.3em;
     margin: 0.06em 0.2em;
     white-space: nowrap;
     display: inline-block;
@@ -229,6 +228,8 @@
   }
 
   .link > :global(a) {
+    padding: 0 0.22rem;
+    box-sizing: border-box;
     color: black;
     text-decoration: none;
     transition: all 1s;

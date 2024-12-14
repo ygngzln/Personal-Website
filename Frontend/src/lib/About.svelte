@@ -40,7 +40,7 @@ const camptext = "As a volunteer for White Stag Leadership Development in Monter
         grid-template-rows: 3.25fr repeat(2, 3fr) 2fr 4fr;
         grid-template-areas:
         "t t t t"
-        "pi p p pii"
+        "p p pi pii"
         "g g gi gi"
         "h h h h"
         "ht ht ht ht";
@@ -95,7 +95,7 @@ const camptext = "As a volunteer for White Stag Leadership Development in Monter
 
     #skills {
         font-family:'Qarkine';
-        font-size: 4vw;
+        font-size: 3.2vw;
         background: rgba(22, 0, 71, 0.5);
         text-shadow: -0.025em 0.025em 0.2px skyblue, 0.025em -0.025em 0.2px salmon;
         grid-area: p;
