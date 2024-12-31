@@ -95,7 +95,7 @@
         transition: all 0.3s linear;
     }
 
-    #projects > :global(a), #abouttext > :global(a), #image2 > :global(a) {
+    #projects > :global(a), #abouttext > :global(a) {
         height: 100%;
         width: 100%;
         color: white;
@@ -146,17 +146,13 @@
         border-style: double groove;
         border-color: white black;
         border-radius: 2em;
+        font-family: "Cool";
+        color: white;
         font-size: 1.5em;
+        letter-spacing: 0.25em;
         padding-top: 0.5em;
         text-align: center;
-    }
-
-    #image2 > :global(a) {
-        font-family: "Cool";
         text-shadow: 0.075em 0.075em 1px black;
-        color: white;
-        letter-spacing: 0.25em;
-        font-size: 1.5em;
     }
 
     @media screen and (max-width: 414px) {

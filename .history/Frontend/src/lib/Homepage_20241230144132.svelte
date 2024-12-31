@@ -95,7 +95,7 @@
         transition: all 0.3s linear;
     }
 
-    #projects > :global(a), #abouttext > :global(a), #image2 > :global(a) {
+    #projects > :global(a), #abouttext > :global(a) {
         height: 100%;
         width: 100%;
         color: white;
