@@ -10,7 +10,7 @@ let stringstart:string;
 if(import.meta.env.VITE_NODE_ENV === "development") {
     stringstart = "http://localhost:4000/"
 } else {
-    stringstart = "https://y-hnyw.onrender.com/"
+    stringstart = import.meta.env.VITE_BACKEND
 }
 let uri2:string = stringstart + 'api/v1/qna/'
 let uri:string = stringstart + 'api/v1/suggestions/'

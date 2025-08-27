@@ -149,7 +149,7 @@
   }
 
   :global(html) {
-    scrollbar-color: white black;
+    scrollbar-color: white rgb(48, 0, 54);
     scrollbar-width: thin;
     font-size: 20px;
   }

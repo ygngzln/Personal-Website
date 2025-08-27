@@ -18,7 +18,9 @@
 </span>
 
 <style>
+    
     #case {
+        --case-border: 0.1rem solid rgba(0, 0, 0, 1);
         width: 100%;
         height: 100%;
         position: relative;
@@ -27,7 +29,7 @@
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
-        padding: 1rem 2rem;
+        padding: 1rem 3.65rem;
     }
 
     #clickable {
@@ -42,7 +44,7 @@
         width: 100%;
         height: 12rem;
         background: rgba(0, 0, 0, 0.795);
-        border: 0.1rem solid rgba(0, 0, 0, 0.7);
+        border: var(--case-border);
         box-sizing: border-box;
     }
 
@@ -56,15 +58,16 @@
         width: 100%;
         font-weight: bold;
         color: rgb(160, 172, 225);
-        background-color: rgba(30, 80, 107, 0.839);
+        background-color: rgba(21, 53, 71);
         text-shadow: 0px 0px 8px rgb(14, 31, 88);
         font-family: 'Dynapuff', monospace;
-        border-left: 0.1rem solid rgba(0, 0, 0, 0.7);
-        border-right: 0.1rem solid rgba(0, 0, 0, 0.7);
+        border-left: var(--case-border);
+        border-right: var(--case-border);
         box-sizing: border-box;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 0.25rem 0;
     }
 
     #dsc {
@@ -76,7 +79,9 @@
         font-family: 'Cool';
         letter-spacing: 0.09em;
         box-sizing: border-box;
-        border: 0.1rem solid rgba(0, 0, 0, 0.7);
+        border-bottom: var(--case-border);
+        border-right: var(--case-border);
+        border-left: var(--case-border);
     }
 
     #dsc::-webkit-scrollbar {

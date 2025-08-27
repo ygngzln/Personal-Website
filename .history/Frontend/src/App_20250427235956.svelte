@@ -15,6 +15,7 @@
   import Projects from './lib/Projects.svelte'
   import Preload from './lib/Preload.svelte'
   import Sbtn from './lib/Sbtn.svelte'
+  import Pictures from './lib/Pictures.svelte';
 
   import G from './assets/github.png'
   import H from './assets/he2.png'
@@ -69,6 +70,7 @@
       <Route path="Blogs/Games"><GamesBlog/></Route>
       <Route path="Blogs/Camp"><CampBlog/></Route>
       <Route path="QNA"><QNA/></Route>
+      <Route path="Pictures"><Pictures/></Route>
     </div>
     <footer>
       <div id="footerContent">
@@ -81,6 +83,7 @@
           <Link to="/Updates">Updates</Link>
           <Link to="/Blogs">Blogs</Link>
           <Link to="/QNA">QNA</Link>
+          <Link to="/Pictures">Pictures</Link>
         </span>
       </span>
         <span id="others">
@@ -146,7 +149,7 @@
   }
 
   :global(html) {
-    scrollbar-color: white black;
+    scrollbar-color: rgb(245, 241, 243) rgb(28, 0, 32);
     scrollbar-width: thin;
     font-size: 20px;
   }

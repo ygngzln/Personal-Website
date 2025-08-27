@@ -88,18 +88,18 @@
         grid-template-areas:
         "t t i i n n"
         "t t i i e e";
-        height: 36vh;
-        padding: 0.8rem 0;
+        height: 14rem;
+        padding: 0.8rem 0 0 0;
     }
 
     #curTitle {
         grid-area: t;
-        font-size: 2.8rem;
+        font-size: 3.2rem;
         display: flex;
         align-items: center;
-        padding-left: 3rem;
+        text-align: center;
         color: rgb(225, 222, 240);
-        text-shadow: 0px 0px 2px rgb(25, 25, 83), 0px 0px 10px rgb(101, 8, 145);
+        text-shadow: 0px 0px 2px rgb(25, 25, 83), 0px 0px 8px rgb(51, 3, 74);
         font-family: 'Nostalgia';
         background: rgba(0,0,0,0.1);
     }
@@ -120,6 +120,7 @@
         font-weight: bold;
         font-family: 'Sunflower';
         background: rgba(0,0,0,0.4);
+        text-align: center;
     }
 
     #curDL {

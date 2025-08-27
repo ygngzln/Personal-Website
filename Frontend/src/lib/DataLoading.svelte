@@ -33,10 +33,9 @@
     #load {
         color: white;
         font-family: 'Michroma', sans-serif;
-        font-size: 3vw;
-        max-height: 3rem;
+        font-size: 3rem;
         background: rgb(0, 0, 0, 0.2);
-
+        display: inline-block;
     }
 
     #grr {
