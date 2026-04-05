@@ -11,8 +11,8 @@
 <span id="case">
     <div id="clickable" on:click={openLink}>
         <!-- svelte-ignore a11y-img-redundant-alt -->
+         <div id="title"><img src={`src/assets/icons/${project.language.toLowerCase()}.png`} alt="Project icon" id="icon"/>{project.name}</div>
         <div id="imgdiv"><img src={link} loading="lazy" alt="Project image" id="img"/></div>
-        <div id="title">{project.name}</div>
         <div id="dsc">{project.description}</div>
     </div>
 </span>
@@ -29,7 +29,7 @@
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
-        padding: 1rem 3.65rem;
+        padding: 1rem 1rem;
     }
 
     #clickable {
@@ -53,21 +53,28 @@
         height: 100%;
     }
 
+    #icon {
+        width: 1.8rem;
+        height: 1.8rem;
+        margin-right: 0.75rem;
+    }
+
     #title {
-        font-size: 1.5rem;
+        font-size: 1.72rem;
         width: 100%;
+        letter-spacing: 0.12rem;
         font-weight: bold;
-        color: rgb(160, 172, 225);
-        background-color: rgba(21, 53, 71);
+        color: white;
         text-shadow: 0px 0px 8px rgb(14, 31, 88);
-        font-family: 'Dynapuff', monospace;
-        border-left: var(--case-border);
-        border-right: var(--case-border);
+        font-family: 'Nostalgia';
+        background: rgba(0,0,0,1);
         box-sizing: border-box;
+        text-align: left;
+        padding: 0.55rem 0 0.55rem 0.85rem;
         display: flex;
+        flex-direction: row;
+        justify-content: left;
         align-items: center;
-        justify-content: center;
-        padding: 0.25rem 0;
     }
 
     #dsc {

@@ -9,10 +9,14 @@ lerna-debug.log*
 
 node_modules
 dist
+.sveltekit
+.sveltekit/
 dist-ssr
 *.local
 .env
 *.local
+.history
+*.history
 
 # Editor directories and files
 .vscode/*`
@@ -26,3 +30,6 @@ dist-ssr
 *.sw?
 .env
 .vercel
+todo.md
+.vscode
+.history
