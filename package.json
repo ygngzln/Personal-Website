@@ -5,8 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "dev": "npm run dev --prefix Frontend",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix Frontend && npm run build --prefix Frontend"
+    "build": "npm install --prefix Frontend && npm run build --prefix Frontend"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",

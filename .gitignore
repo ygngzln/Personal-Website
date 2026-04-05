@@ -16,6 +16,8 @@ dist-ssr
 .vscode
 nodemon.json
 vercel.json
+.history
+*.history
 
 # Editor directories and files
 !.vscode/*
@@ -29,6 +31,7 @@ vercel.json
 *.sln
 *.sw?
 .vercel
+.history
 node_modules
 nodemon.json
 vercel.json

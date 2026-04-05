@@ -8,7 +8,7 @@ You can contact me at ygngzln@gmail.com. <br>
 **Credits:**
 Programmed by me. Heavy graphic design aid by another person who prefers to remain anonymous. All background images from Pinterest.
 
-### 2.4 (Date) - Patch 4
+### 2.4 - QNA Fix and whatnot
 - Fixed an issue regarding data loading animation and resizing the window causing gaps
 - Adjusted project page (cases and current project) sizes, colors, borders, minor details, etc
 
