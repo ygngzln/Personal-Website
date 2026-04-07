@@ -157,7 +157,7 @@ const camptext = "As a volunteer for White Stag Leadership Development in Monter
 
     #campimage {
         grid-area: ci;
-        background: url("../../assets/pc.png");
+        background: url("../../assets/pictures/pc.png");
         background-size: cover;
     }
 

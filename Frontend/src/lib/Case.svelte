@@ -1,5 +1,14 @@
 <script lang="ts">
     export let project:any;
+    import js from '../assets/icons/js.png'
+    import cpp from '../assets/icons/cpp.png'
+    import godot from '../assets/icons/godot.png'
+
+    let icons = {
+        "js": js,
+        "cpp": cpp,
+        "godot": godot
+    };
     let link = import.meta.env.VITE_BACKEND + "api/v1/imgs/" + project.img
 
     function openLink() {
@@ -11,7 +20,7 @@
 <span id="case">
     <div id="clickable" on:click={openLink}>
         <!-- svelte-ignore a11y-img-redundant-alt -->
-         <div id="title"><img src={`src/assets/icons/${project.language.toLowerCase()}.png`} alt="Project icon" id="icon"/>{project.name}</div>
+         <div id="title"><img src={icons[project.language.toLowerCase()]} alt="Project icon" id="icon"/>{project.name}</div>
         <div id="imgdiv"><img src={link} loading="lazy" alt="Project image" id="img"/></div>
         <div id="dsc">{project.description}</div>
     </div>

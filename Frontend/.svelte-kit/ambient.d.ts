@@ -38,7 +38,6 @@
  * The above values will be the same _even if_ different values for `ENVIRONMENT` or `PUBLIC_BASE_URL` are set at runtime, as they are statically replaced in your code with their build time values.
  */
 declare module '$env/static/private' {
-	export const VITE_PASS: string;
 	export const VITE_NODE_ENV: string;
 	export const VITE_BACKEND: string;
 	export const NVM_INC: string;
@@ -195,7 +194,6 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
-		VITE_PASS: string;
 		VITE_NODE_ENV: string;
 		VITE_BACKEND: string;
 		NVM_INC: string;

@@ -3,6 +3,8 @@
     import axios from 'axios'
     import { onMount } from 'svelte';
     import DataLoading from '../../lib/DataLoading.svelte'
+    import moonclouds from '../../assets/moonclouds.jpeg'
+    
     let stringstart:string;
     if(import.meta.env.VITE_NODE_ENV === "development") {
         stringstart = "http://localhost:4000/";
@@ -19,11 +21,12 @@
         window.scrollTo(0,0);
         list = await axios.get(uri).then((res) => res.data);
         loaded = true;
+        console.log(list)
     })
 </script>
 
 <div class="bg-wrapper">
-    <img src="src/assets/moonclouds.jpeg" alt='not load' class="bg-img" loading='lazy'/>
+    <img src={moonclouds} alt='not load' class="bg-img" loading='lazy'/>
     <div id="projTitle">PROJECTS</div>
     <div id="curFrame">
         <span id="curTitle">Current work:</span>
