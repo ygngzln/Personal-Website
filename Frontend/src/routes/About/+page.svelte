@@ -1,25 +1,37 @@
 <script lang="ts">
-const skillstext = "Programming is enjoyable to me as a person because it allows me to create, fix, and bring my ideas from imaginations onto the screen. I use JS a lot and also have some experience with C++ and GDScript (from Godot).";
-const skillstext2 = "I have made a few projects (mostly frontend) and I intend to start making more and expanding out from frontend/web dev. I've done competitive programming (USACO and other competitions), and currently am trying to build a main focus for my skills. Expect to see more projects in the future.";
-const goalstext = "I have big goals for programming and wish to explore other parts of computer science. More specifically, moving away from frontend-focused design and expanding on what I can do with backend and databases. I also want to try parts of CS like mobile apps or software apps.";
-const gamestext = "One of my most favorite (and least stable) hobbies is games! I play/have played a lot of different games and amassed hours in them wasting my life away doing different things. While I really lack skill in basically all of the games I have ever played, the experience mattered to me and I had a lot of fun until that fun burns out. Check out games I reviewed in my Blogs page!";
-const camptext = "As a volunteer for White Stag Leadership Development in Monterey for the past few years, I go out camping pretty often. I like taking pictures of the scenery and sharing them. The fun part about camping for me is how surreal it is sometimes, especially with so many friends around";
+import linked from '../../assets/icons/linkedin.png';
+import github from '../../assets/icons/github.png';
+import gmail from '../../assets/icons/gmail.png';
+
+let icons:string[] = [linked, github, gmail];
+let names:string[] = ["LinkedIn", "GitHub", "Gmail"];
+let links:string[] = [
+    "https://www.linkedin.com/in/yigeng-lin-b12268295/",
+    "https://github.com/ygngzln",
+    "mailto:ygngzln@gmail.com"
+];
+
+const basictext:string = "My name is Yigeng Lin and I'm a CS student. I make projects and sometimes post them. Music taste is mostly rnb and game soundtracks. Avid Minecraft and Tetris player. Definitely more on the outdoors side of things, I enjoy camping and hikes. I don't really like Javascript that much but I end up using it anyways.";
+const basictext2:string = "I'm a cat person. Dogs are okay too tho. I read manga over anime because of the pacing but I'm always willing to give stuff a try. Am from Washington but I live in California. I definitely prefer the sunnier weather here. Bye =w=";
+const goalstext:string = "I have aspirations to help make a larger-scale game one day. I also want to try making some projects that can find a use in helping others. Other than programming stuff, I always want to be a better Tetris player. Have a bunch of other personal goals too.";
+const progtext:string = "I'm actively looking for project opportunities and I'm down to learn new things. I know how to use Godot, JS/TS, C++, Svelte, React, APIs, and databases. I often use AI to help me debug and polish. Lmk if you have any opportunities for me.";
 </script>
 
 <div id="background">
     <div id="gridwrapper">
         <div id="title">ABOUT ME</div>
-        <div class="skillstext aboutText" id="skill1">{skillstext}</div>
-        <div id="skills" class="aboutTitle">Programming</div>
-        <div class="skillstext aboutText" id="skill2">{skillstext2}</div>
+        <div class="basictext aboutText" id="basic1">{basictext}</div>
+        <div id="basics" class="aboutTitle">Basic Info</div>
+        <div class="basictext aboutText" id="basic2">{basictext2}</div>
         <div id="goalstext" class="aboutText">{goalstext}</div>
         <div id="goals" class="aboutTitle">Goals</div>
-        <div id="hobbies" class="aboutTitle">Hobbies</div>
-        <div id="hobbycontent">
-            <div id="gameimage"></div>
-            <div id="gametext" class="aboutText">{gamestext}</div>
-            <div id="camptext" class="aboutText">{camptext}</div>
-            <div id="campimage"></div>
+        <div id="prog" class="aboutTitle">CS</div>
+        <div id="progtext" class="aboutText">{progtext}</div>
+        <div id="contacts" class="aboutTitle">Contacts</div>
+        <div id="contactwrapper">
+            {#each names as x, i}
+                <a href={links[i]} target="_blank"><img class="linkimg" src={icons[i]} alt={names[i]}/></a>
+            {/each}
         </div>
     </div>
 </div>
@@ -37,19 +49,19 @@ const camptext = "As a volunteer for White Stag Leadership Development in Monter
         width: 100%;
         display: grid;
         grid-template-columns: repeat(4, 2fr);
-        grid-template-rows: 3.25fr repeat(2, 3fr) 2fr 4fr;
+        grid-template-rows: 2.2fr repeat(2, 3fr) 2fr 4fr;
         grid-template-areas:
         "t t t t"
         "p p pi pii"
-        "g g gi gi"
-        "h h h h"
-        "ht ht ht ht";
+        "g gi h ht"
+        "c ci ct ct";
         justify-items: center;
+        gap: 0.65rem;
     }
 
     #title {
-        font-size: 10vw;
-        letter-spacing: 0.8rem;
+        font-size: 9vw;
+        letter-spacing: 0.6rem;
         grid-area: t;
         color: black;
         font-family:'Chicken';
@@ -59,106 +71,96 @@ const camptext = "As a volunteer for White Stag Leadership Development in Monter
         align-items: center;
     }
 
-    #skill1 {
+    #basic1 {
         grid-area: pi;
     }
 
-    #skill2 { 
+    #basic2 { 
         grid-area: pii;
-    }
-
-    .skillstext {
-        padding: 1.4em 1em;
-        background: rgba(22, 0, 71, 0.5);
     }
 
     .aboutTitle {
         width: 100%;
-        letter-spacing: 5px;
+        letter-spacing: 4px;
         box-sizing: border-box;
         display: flex;
         justify-content: center;
         align-items: center;
         color: white;
+        opacity: 0.95;
+    }
+
+    .aboutTitle:hover {
+        opacity: 1;
     }
 
     .aboutText {
-        color: white;
+        color: rgb(244, 241, 241);
         width: 100%;
-        font-size: 0.9em;
-        letter-spacing: 0.1em;
+        font-size: 1.2em;
+        letter-spacing: 0.04em;
         box-sizing: border-box;
         display: flex;
         justify-content: center;
-
+        opacity: 0.95;
+        padding: 0.9em;
+        background: rgba(17, 0, 54, 0.9);
     }
 
-    #skills {
-        font-family:'Qarkine';
-        font-size: 3.2vw;
-        background: rgba(22, 0, 71, 0.5);
-        text-shadow: -0.025em 0.025em 0.2px skyblue, 0.025em -0.025em 0.2px salmon;
+    .aboutText:hover {
+        opacity: 1;
+    }
+
+    #basics {
+        font-family:'Celt';
+        font-size: 7vw;
+        background: rgba(30, 24, 42, 0.9);
         grid-area: p;
+        font-weight: bold;
         height: 100%;
     }
 
     #goals {
-        background-color: rgba(17, 18, 87, 0.296);
-        font-weight: bold;
+        background-color: rgba(74, 3, 74, 0.7);
         grid-area: g;
-        font-size: 10vw;
-        font-family: 'Balegah';
+        font-size: 8vw;
+        font-family: 'Celt';
     }
 
     #goalstext {
-        background-color: rgba(17, 18, 87, 0.296);
-        font-size: 1.2em;
-        padding: 0.5em 1em;
         grid-area: gi;
+    }
+
+    #prog {
+        font-family: 'Celt';
+        font-size: 7vw;
+        grid-area: h;
+        background-color: rgba(59, 4, 14, 0.7);
+    }
+
+    #contacts {
+        grid-area: c;
+        font-family: 'Celt';
+        font-size: 5vw;
+        background-color: rgba(2, 123, 83, 0.6);
+    }
+
+    #contactwrapper {
+        display: flex;
+        grid-area: ci;
+        width: 100%;
+        gap: 0.5rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: left;
         align-items: center;
     }
 
-    #hobbies {
-        font-family: 'Celt';
-        font-size: 6vw;
-        grid-area: h;
-        background-color: rgba(22, 0, 71, 0.5);
-    }
-
-    #hobbycontent {
-        width: 100%;
-        grid-area: ht;
-        display: grid;
-        grid-template-columns: 2fr 3fr 3fr 2fr;
-        grid-template-rows: 1fr;
-        grid-template-areas:
-        "g gi ci c";
-    }
-
-    #gameimage {
-        grid-area: gi;
-        background: url('../../assets/games.png');
-        background-size: cover;
-        background-position-x: -140px;
-        border-right: 4px solid rgb(82, 7, 0);
-    }
-
-    #gametext {
-        background-color: rgba(22, 0, 71, 0.5);
-        padding: 2em 0.75em;
-        grid-area: g;
-    }
-
-    #camptext {
-        grid-area: c;
-        background-color: rgba(22, 0, 71, 0.5);
-        padding: 2em 0.75em;
-    }
-
-    #campimage {
-        grid-area: ci;
-        background: url("../../assets/pictures/pc.png");
-        background-size: cover;
+    .linkimg {
+        font-size: 1vw;
+        width: 6rem;
+        height: 6rem;
+        box-sizing: border-box;
     }
 
     @media screen and (max-width: 414px) {
@@ -173,14 +175,6 @@ const camptext = "As a volunteer for White Stag Leadership Development in Monter
             "gi gi gi gi"
             "h h h h"
             "ht ht ht ht";  
-        }
-
-        #hobbycontent {
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: 0.8fr 1fr;
-            grid-template-areas:
-            "gi gi ci ci"
-            "g g c c";
         }
     }
 </style>

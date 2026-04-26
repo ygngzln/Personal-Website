@@ -115,11 +115,13 @@ onMount(async() => {
     </grid>
     <div id="qnabox">
         {#each qna as entry, x}
-            <div class="q">
-                {entry.question}
-            </div>
-            <div class="a">
-                {entry.answer}
+            <div class="qnaentry">
+                <div class="q">
+                    Q: {entry.question}
+                </div>
+                <div class="a">
+                    {entry.answer}
+                </div>
             </div>
         {/each}
     </div>
@@ -168,8 +170,8 @@ onMount(async() => {
     #text {
         text-align: left;
         width: 90%;
-        background: rgba(255, 255, 255, 0.4);
-        padding: 0.2rem 0.6rem 0.2rem 0.2rem;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 0.3rem 0.6rem 0.3rem 0.3rem;
     }
 
     #subtitle {
@@ -247,34 +249,42 @@ onMount(async() => {
 
     #qnabox {
         margin: 1.2rem 0;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        text-align: left;
+        gap: 1.2rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-flow: row dense;
         position: relative;
         width: 90%;
     }
+    
+    .qnaentry {
+        display: flex;
+        flex-direction: column;
+    }
 
     .q {
-        font-size: 1.8rem;
-        font-family: 'ChocoShake';
-        color: rgb(7, 6, 60);
-        background-color: rgb(78, 102, 138);
-        padding: 0.2rem 0.2rem;
+        font-size: 1.75rem;
+        font-family: 'Nostalgia';
+        font-weight: bold;
+        color: rgb(119, 126, 213);
+        background-color: rgb(0, 0, 0);
+        padding: 0.4rem 0.4rem;
         width: 100%;
         text-align: left;
         box-sizing: border-box;
+        border-radius: 0.5rem 0.5rem 0 0;
     }
 
     .a {
-        font-size: 0.9rem;
+        font-size: 1.25rem;
         font-family: 'NK57';
-        padding: 0.2rem 0.2rem;
+        padding: 0.25rem 0.25rem;
         background-color: rgba(255, 255, 255, 0.678);
         width: 100%;
         text-align: left;
         box-sizing: border-box;
         margin-bottom: 10px;
+        min-height: 20vh;
     }
 
     @media screen and (max-width: 414px) {

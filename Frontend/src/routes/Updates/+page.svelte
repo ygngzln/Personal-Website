@@ -62,7 +62,7 @@
     #entries {
         position: relative;
         display: flex;
-        width: 60%;
+        width: 80%;
         text-align: center;
         flex-direction: column;
     }
@@ -91,12 +91,16 @@
     .message {
         width: 80%;
         margin-bottom: 0.25rem;
-        background: rgba(0, 0, 0, 0.6);
-        font-size: 0.9rem;
-        padding: 0.5rem;
+        background: rgba(0, 0, 0, 0.98);
+        font-size: 1.2rem;
+        padding: 0.75rem;
         font-family: 'Nostalgia';
         color: white;
         text-align: left;
+    }
+
+    .message:hover {
+        background: rgba(0, 0, 0, 0.85)
     }
 
     @media screen and (max-width: 414px) {
