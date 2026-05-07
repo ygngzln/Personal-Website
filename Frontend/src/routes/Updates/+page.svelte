@@ -3,6 +3,7 @@
     import {fade} from 'svelte/transition'
     import {quintOut} from 'svelte/easing'
     import DataLoading from '../../lib/DataLoading.svelte'
+
     let stringstart:string;
     if(import.meta.env.VITE_NODE_ENV === "development") {
         stringstart = "http://localhost:4000/"
@@ -40,11 +41,11 @@
     #background {
         width: 100%;
         height: 100%;
-        background: url("../../assets/nightstars.jpg");
-        background-size: cover;
         display: flex;
         flex-direction: column;
         align-items: center;
+        background: linear-gradient(#9eb1c3, #b5c2d0);
+        padding-bottom: 1rem;
     }
 
     #updateTitle {
@@ -52,10 +53,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: 'Qarkine';
-        letter-spacing: 0.3rem;
-        color: rgb(126, 157, 167);
-        text-shadow: 0.01em 0.01em 4px white, -0.01em -0.01em 4px white, 0.01em -0.01em 4px white, -0.01em 0.01em 4px white;
+        font-family: 'Nostalgia';
+        margin: 2rem;
+        letter-spacing: 0.5rem;
+        color: rgb(26, 44, 50);
+        font-weight: bold;
+        text-shadow: 0.01em 0.01em 2px #ced7e0, -0.01em -0.01em 2px #ced7e0, 0.01em -0.01em 2px #ced7e0, -0.01em 0.01em 2px #ced7e0;
         font-size: 9.5vw;
     }
 
@@ -76,11 +79,12 @@
 
     .date {
         width: 20%;
-        background-color: lightblue;
-        border: 0.2rem solid rgb(33, 129, 174);
+        background-color: #95b0bb;
+        border: 0.2rem solid #53768c;
         border-right: none;
         font-size: 1.4rem;
         padding: 0.4rem 0;
+        box-sizing: border-box;
         border-radius: 25% 0 0 25%; 
         font-family: 'Cool';
         display: flex;
@@ -90,7 +94,6 @@
 
     .message {
         width: 80%;
-        margin-bottom: 0.25rem;
         background: rgba(0, 0, 0, 0.98);
         font-size: 1.2rem;
         padding: 0.75rem;

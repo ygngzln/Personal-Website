@@ -51,6 +51,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        background: #ced7e0;
+        z-index: -2;
     }
 
     .bg-img {
@@ -58,9 +60,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        top: 1;
+        top: 0;
         z-index: -1;
-        object-fit: cover;
     }
 
     #projTitle {

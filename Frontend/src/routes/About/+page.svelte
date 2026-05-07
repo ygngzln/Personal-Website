@@ -2,6 +2,8 @@
 import linked from '../../assets/icons/linkedin.png';
 import github from '../../assets/icons/github.png';
 import gmail from '../../assets/icons/gmail.png';
+import pinksky from '../../assets/pinksky.jpg'
+import {fly} from 'svelte/transition'
 
 let icons:string[] = [linked, github, gmail];
 let names:string[] = ["LinkedIn", "GitHub", "Gmail"];
@@ -18,8 +20,9 @@ const progtext:string = "I'm actively looking for project opportunities and I'm 
 </script>
 
 <div id="background">
+    <img src={pinksky} alt='pink sky bg' class="bg-img" loading='lazy'/>
     <div id="gridwrapper">
-        <div id="title">ABOUT ME</div>
+        <div id="title" in:fly={{y:-200, duration: 500}}>ABOUT ME</div>
         <div class="basictext aboutText" id="basic1">{basictext}</div>
         <div id="basics" class="aboutTitle">Basic Info</div>
         <div class="basictext aboutText" id="basic2">{basictext2}</div>
@@ -27,36 +30,44 @@ const progtext:string = "I'm actively looking for project opportunities and I'm 
         <div id="goals" class="aboutTitle">Goals</div>
         <div id="prog" class="aboutTitle">CS</div>
         <div id="progtext" class="aboutText">{progtext}</div>
-        <div id="contacts" class="aboutTitle">Contacts</div>
-        <div id="contactwrapper">
-            {#each names as x, i}
-                <a href={links[i]} target="_blank"><img class="linkimg" src={icons[i]} alt={names[i]}/></a>
-            {/each}
-        </div>
+    </div>
+    <div id="contactwrapper">
+        <div id="contacts">Contact Info</div>
+        {#each names as x, i}
+            <a href={links[i]} target="_blank"><img class="linkimg" src={icons[i]} alt={names[i]}/></a>
+        {/each}
     </div>
 </div>
 
 <style>
     #background {
+        position: relative;
         display: flex;
         align-items: center;
-        justify-content: center;
-        background: url('../../assets/nightclouds2.jpg');
-        background-size: cover;
+        flex-direction: column;
+    }
+
+    .bg-img {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        z-index: -1;
+        object-fit: cover;
     }
 
     #gridwrapper {
         width: 100%;
         display: grid;
         grid-template-columns: repeat(4, 2fr);
-        grid-template-rows: 2.2fr repeat(2, 3fr) 2fr 4fr;
+        grid-template-rows: repeat(2, 2fr);
         grid-template-areas:
         "t t t t"
         "p p pi pii"
-        "g gi h ht"
-        "c ci ct ct";
+        "g gi h ht";
         justify-items: center;
-        gap: 0.65rem;
+        gap: 0.75rem;
     }
 
     #title {
@@ -84,6 +95,7 @@ const progtext:string = "I'm actively looking for project opportunities and I'm 
         letter-spacing: 4px;
         box-sizing: border-box;
         display: flex;
+        font-family: 'Cool';
         justify-content: center;
         align-items: center;
         color: white;
@@ -102,9 +114,10 @@ const progtext:string = "I'm actively looking for project opportunities and I'm 
         box-sizing: border-box;
         display: flex;
         justify-content: center;
-        opacity: 0.95;
+        font-family: 'Nostalgia';
+        opacity: 0.96;
         padding: 0.9em;
-        background: rgba(17, 0, 54, 0.9);
+        background: rgba(17, 0, 54, 0.95);
     }
 
     .aboutText:hover {
@@ -112,19 +125,17 @@ const progtext:string = "I'm actively looking for project opportunities and I'm 
     }
 
     #basics {
-        font-family:'Celt';
         font-size: 7vw;
-        background: rgba(30, 24, 42, 0.9);
+        background: rgba(30, 24, 42, 0.95);
         grid-area: p;
         font-weight: bold;
         height: 100%;
     }
 
     #goals {
-        background-color: rgba(74, 3, 74, 0.7);
+        background-color: rgba(74, 3, 74, 0.95);
         grid-area: g;
         font-size: 8vw;
-        font-family: 'Celt';
     }
 
     #goalstext {
@@ -132,49 +143,59 @@ const progtext:string = "I'm actively looking for project opportunities and I'm 
     }
 
     #prog {
-        font-family: 'Celt';
         font-size: 7vw;
         grid-area: h;
-        background-color: rgba(59, 4, 14, 0.7);
+        background-color: rgba(59, 4, 14, 0.95);
     }
 
     #contacts {
-        grid-area: c;
-        font-family: 'Celt';
-        font-size: 5vw;
-        background-color: rgba(2, 123, 83, 0.6);
+        font-family: 'Cool';
+        font-size: 6vw;
+        letter-spacing: 3px;
+        position: relative;
+        height: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        color: white;
+        opacity: 0.95;
+        padding: 0 0.75rem;
+        background-color: rgba(2, 123, 83, 0.67);
     }
 
     #contactwrapper {
+        margin-top: 0.75rem;
         display: flex;
-        grid-area: ci;
         width: 100%;
-        gap: 0.5rem;
+        height: 7rem;
+        gap: 0.75rem;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: left;
         align-items: center;
+        background-color: rgba(2, 123, 83, 0.2);
     }
 
     .linkimg {
         font-size: 1vw;
         width: 6rem;
-        height: 6rem;
+        display: block;
         box-sizing: border-box;
     }
 
     @media screen and (max-width: 414px) {
         #gridwrapper {
+            width: 100%;
+            display: grid;
             grid-template-columns: repeat(4, 2fr);
-            grid-template-rows: 0.2fr 0.1fr 0.3fr 0.15fr 0.3fr 0.2fr 0.2fr;
+            grid-template-rows: repeat(2, 2fr);
             grid-template-areas:
             "t t t t"
-            "p p p p"
-            "pi pi pii pii"
-            "g g g g"
-            "gi gi gi gi"
-            "h h h h"
-            "ht ht ht ht";  
+            "p p pi pii"
+            "g gi h ht";
+            justify-items: center;
+            gap: 0.75rem;  
         }
     }
 </style>

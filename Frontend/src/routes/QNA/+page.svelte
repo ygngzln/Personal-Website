@@ -260,13 +260,18 @@ onMount(async() => {
     .qnaentry {
         display: flex;
         flex-direction: column;
+        opacity: 1;
+    }
+
+    .qnaentry:hover {
+        opacity: 0.901;
     }
 
     .q {
         font-size: 1.75rem;
         font-family: 'Nostalgia';
         font-weight: bold;
-        color: rgb(119, 126, 213);
+        color: #a7adb2;
         background-color: rgb(0, 0, 0);
         padding: 0.4rem 0.4rem;
         width: 100%;

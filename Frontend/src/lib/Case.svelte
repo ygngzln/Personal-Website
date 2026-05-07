@@ -87,14 +87,16 @@
     }
 
     #dsc {
-        font-size: 1rem;
+        font-size: 1.3rem;
         background-color: rgb(132, 171, 194);
-        padding: 0.3rem 0.2rem;
+        padding: 0.2rem 0.5rem 0.15rem 0.5rem;
         height: 5.5rem;
         overflow-y: auto;
+        scrollbar-width: thin;
         font-family: 'Cool';
         letter-spacing: 0.09em;
         box-sizing: border-box;
+        text-align: left;
         border-bottom: var(--case-border);
         border-right: var(--case-border);
         border-left: var(--case-border);
