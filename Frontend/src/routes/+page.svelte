@@ -11,13 +11,13 @@
     </span>
     <hr>
     <div id="frame">
-        <div id="projects">
+        <div id="projects" class="hometitle">
             <a href="/Projects">My Projects</a>
         </div>
-        <div id="abouttext">
+        <div id="abouttext" class="hometitle">
             <a href="/About">More About Me!</a>
         </div>
-        <div id="image2">
+        <div id="image2" class="hometitle">
             <a href="/Pictures">Places I've Been</a>
         </div>
     </div>
@@ -32,7 +32,7 @@
         background-size: cover;
         background-position-y: 100%;
         image-rendering: crisp-edges;
-        color:white;
+        color: white;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -48,20 +48,19 @@
     }
 
     #title {
-        font-size: 5.4em;
-        font-family: 'Sunflower';
-        font-weight: lighter;
-        letter-spacing: 0.1em;
+        font-size: 6.5rem;
+        font-family: 'Quat';
+        letter-spacing: 0.09em;
         text-shadow: 0px 0px 1px salmon, 0px 0px 4px black, 0px 0px 4px black, 0px 0px 8px black;
     }
 
     #sub {
-        margin: 0.5% 0;
-        font-size: 2rem;
-        text-shadow: -1.4px -1.4px 0.1px rgb(91, 91, 91), 1.4px -1.4px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0px 0px 2px red;
-        letter-spacing: 0.2em;
-        color: rgb(211, 116, 143);
-        font-family: 'ChocoShake';
+        margin: 0.75rem 0;
+        font-size: 2.8rem;
+        text-shadow: 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -1px -1px 0 #000;
+        letter-spacing: 0.14rem;
+        color: rgb(200, 116, 140);
+        font-family: 'Fanwood';
     }
 
     #frame {
@@ -78,40 +77,36 @@
         margin-top: 1rem;
     }
 
-    #projects {
-        grid-area: p;
-        background: url('../assets/projects.png');
-        background-size:cover;
+    .hometitle {
         background-repeat: no-repeat;
-        background-position-y: 18%;
-        font-size: 3em;
-        font-family: "Nostalgia";
-        font-weight: bold;
-        text-decoration: none;
-        border-width: 0.1em 0.15em;
-        border-style: double groove;
-        border-color: white black;
-        border-radius: 1.8em;
-        text-shadow: -0.05rem -0.05rem 0.15rem darkblue, 0.05rem 0.05rem 0.15rem black, 0.05rem -0.05rem 0.15rem black, -0.05rem 0.05rem 0.15rem black;
-        transition: all 0.3s linear;
-        letter-spacing: 0.072em;
-        padding-top: 11rem;
+        font-family: "Quat";
+        border-radius: 15px;
     }
 
-    #projects > :global(a), #abouttext > :global(a), #image2 > :global(a) {
+    .hometitle > :global(a) {
         height: 100%;
         width: 100%;
         color: white;
         display: flex;
         justify-content: center;
+        text-shadow: 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px -2px 0 #000;
         align-items: center;
+        text-decoration: none;
+    }
+
+    #projects {
+        grid-area: p;
+        background: url('../assets/projects.png');
+        background-size: cover;
+        font-size: 3.5rem;
+        padding-top: 12rem;
+        transition: all 0.3s linear;
     }
 
     #projects:hover {
         cursor: pointer;
-        animation: hoverInfo 1s;
-        border-radius: 1.7em;
-        font-size: 3.4em;
+        border-radius: 1.2rem;
+        font-size: 3.55em;
         transition: all 0.3s linear;
     }
 
@@ -120,50 +115,37 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 15px;
-        background: url('../assets/wah.png');
+        background: url('../assets/wah1.jpg');
         background-size: cover;
-        background-position-y: 20%;
-        text-decoration: none;
-        color: white;
-        text-shadow: -0.1rem -0.1rem 0 black;
-        font-size: 1.9em;
-        font-family: 'Cool';
-        transition: all 0.5s linear;
+        background-position-y: 42%;
+        font-size: 3rem;
+        transition: all 0.4s linear;
     }
 
     #abouttext:hover {
         cursor: pointer;
-        animation: hoverInfo 1s;
-        border-radius: 10px;
-        font-size: 2.1em;
-        transition: all 0.5s linear;
+        border-radius: 1.2rem;
+        font-size: 3.1rem;
+        transition: all 0.3s linear;
     }
 
     #image2 {
         background: url("../assets/pictures/woah.png");
-        grid-area: i;
         background-size: cover;
+        grid-area: i;
         cursor: pointer;
         background-position-y: 35%;
+        background-position-x: -20%;
         border-radius: 15px;
-        font-size: 1.35em;
-        padding-top: 0.5em;
+        font-size: 3rem;
         text-align: center;
-        text-shadow: 0px 0px 1px black;
-        transition: all 0.4s;
+        text-shadow: 1.8px -1.8px 0 #000, -1.8px 1.8px 0 #000, 1.8px 1.8px 0 #000, -1.8px -1.8px 0 #000;
+        transition: all 0.6s;
     }
 
     #image2:hover {
-        font-size: 1.5em;
-    }
-
-    #image2 > :global(a) {
-        font-family: "Cool";
-        text-shadow: 0.04em 0.04em 2px black, -0.04em 0.04em 0.5px black;
-        color: white;
-        letter-spacing: 0.1em;
-        font-size: 1.5em;
+        font-size: 3.1rem;
+        border-radius: 1.2rem;
     }
 
     @media screen and (max-width: 414px) {

@@ -53,13 +53,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: 'Nostalgia';
-        margin: 2rem;
+        font-family: 'Quat';
+        margin: 1.8rem;
         letter-spacing: 0.5rem;
         color: rgb(26, 44, 50);
-        font-weight: bold;
         text-shadow: 0.01em 0.01em 2px #ced7e0, -0.01em -0.01em 2px #ced7e0, 0.01em -0.01em 2px #ced7e0, -0.01em 0.01em 2px #ced7e0;
-        font-size: 9.5vw;
+        font-size: 10.5vw;
     }
 
     #entries {
@@ -78,15 +77,15 @@
     }
 
     .date {
-        width: 20%;
+        width: 15%;
         background-color: #95b0bb;
         border: 0.2rem solid #53768c;
         border-right: none;
         font-size: 1.4rem;
         padding: 0.4rem 0;
         box-sizing: border-box;
-        border-radius: 25% 0 0 25%; 
-        font-family: 'Cool';
+        border-radius: 5% 0 0 5%; 
+        font-family: 'Quatsan';
         display: flex;
         justify-content: center;
         align-items: center;
@@ -97,7 +96,7 @@
         background: rgba(0, 0, 0, 0.98);
         font-size: 1.2rem;
         padding: 0.75rem;
-        font-family: 'Nostalgia';
+        font-family: 'Quatsan';
         color: white;
         text-align: left;
     }

@@ -4,5 +4,6 @@
     "verbatimModuleSyntax": true
   },
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
-  "ignoreDeprecations": "5.0"
+  "ignoreDeprecations": "5.0",
+  "noImplicitAny": false
 }

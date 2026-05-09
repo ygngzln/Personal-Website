@@ -104,7 +104,7 @@ onMount(async() => {
             <div id="text">
                 <div id="subtitle">Suggestions are welcome here too!</div>
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <div id="subsubtitle">Please email me at <span title="Copy Email" on:click={copyEmail}>ygngzln@gmail.com</span> if you want me to answer your question immediately! <br />I don't check my Discord bot for QNA updates that often.</div>
+                <div id="subsubtitle">Please email me at <span title="Copy Email" on:click={copyEmail}>ygngzln@gmail.com</span> for direct questions! <br />I don't check my Discord bot for QNA updates that often.</div>
             </div>
         </div>
         <div id="inputs">
@@ -117,7 +117,7 @@ onMount(async() => {
         {#each qna as entry, x}
             <div class="qnaentry">
                 <div class="q">
-                    Q: {entry.question}
+                    {entry.question}
                 </div>
                 <div class="a">
                     {entry.answer}
@@ -142,12 +142,12 @@ onMount(async() => {
 
     #title {
         font-size: 5rem;
-        font-family: 'Cool';
+        font-family: 'Quat';
         padding: 1rem 0 0.5rem 0;
         letter-spacing:1rem;
         font-weight: bold;
         color: white;
-        text-shadow: 0 0.5rem 12px rgb(74, 74, 74);
+        text-shadow: 0 0 10px rgb(50, 50, 50);
         text-align: center;
         text-indent: 1rem;
     }
@@ -169,9 +169,8 @@ onMount(async() => {
 
     #text {
         text-align: left;
-        width: 90%;
         background: rgba(255, 255, 255, 0.95);
-        padding: 0.3rem 0.6rem 0.3rem 0.3rem;
+        padding: 0.6rem;
     }
 
     #subtitle {
@@ -269,27 +268,27 @@ onMount(async() => {
 
     .q {
         font-size: 1.75rem;
-        font-family: 'Nostalgia';
-        font-weight: bold;
-        color: #a7adb2;
+        font-family: 'Quat';
+        color: rgb(211, 221, 229);
         background-color: rgb(0, 0, 0);
-        padding: 0.4rem 0.4rem;
+        padding: 0.6rem;
         width: 100%;
         text-align: left;
         box-sizing: border-box;
-        border-radius: 0.5rem 0.5rem 0 0;
+        border-radius: 0.2rem 0.2rem 0 0;
     }
 
     .a {
         font-size: 1.25rem;
-        font-family: 'NK57';
-        padding: 0.25rem 0.25rem;
-        background-color: rgba(255, 255, 255, 0.678);
+        font-family: 'Quatsan';
+        padding: 0.4rem 0.5rem;
+        background-color: rgba(255, 255, 255, 0.85);
         width: 100%;
         text-align: left;
         box-sizing: border-box;
         margin-bottom: 10px;
-        min-height: 20vh;
+        min-height: 18vh;
+        border-radius: 0 0 0.2rem 0.2rem;
     }
 
     @media screen and (max-width: 414px) {

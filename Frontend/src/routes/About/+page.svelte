@@ -95,7 +95,7 @@ const progtext:string = "I'm actively looking for project opportunities and I'm 
         letter-spacing: 4px;
         box-sizing: border-box;
         display: flex;
-        font-family: 'Cool';
+        font-family: 'Quat';
         justify-content: center;
         align-items: center;
         color: white;
@@ -109,14 +109,14 @@ const progtext:string = "I'm actively looking for project opportunities and I'm 
     .aboutText {
         color: rgb(244, 241, 241);
         width: 100%;
-        font-size: 1.2em;
+        font-size: 1.2rem;
         letter-spacing: 0.04em;
         box-sizing: border-box;
         display: flex;
         justify-content: center;
-        font-family: 'Nostalgia';
+        font-family: 'Quatsan';
         opacity: 0.96;
-        padding: 0.9em;
+        padding: 0.8rem 1rem 0.9rem 1rem;
         background: rgba(17, 0, 54, 0.95);
     }
 
@@ -135,7 +135,7 @@ const progtext:string = "I'm actively looking for project opportunities and I'm 
     #goals {
         background-color: rgba(74, 3, 74, 0.95);
         grid-area: g;
-        font-size: 8vw;
+        font-size: 7vw;
     }
 
     #goalstext {

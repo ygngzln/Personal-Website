@@ -1,3 +1,6 @@
+<script lang="ts">
+
+</script>
 <main>
     <div>LOADING<span class="d">.</span><span class="u">.</span><span class="d">.</span><span class="u">.</span><span class="d">.</span></div>
 </main>
@@ -16,7 +19,7 @@
         text-align: middle;
         background-color: black;
         color: skyblue;
-        font-family: 'Titillium Web', sans-serif;
+        font-family: 'Michroma', sans-serif;
     }
     
     div > span {

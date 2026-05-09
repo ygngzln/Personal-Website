@@ -27,7 +27,7 @@
 </script>
 
 {#if !loaded}
-  <Preload />
+  <Preload/>
 {:else}
     {#if loaded}
     <div id="head">
@@ -69,49 +69,43 @@
     {/if}
 {/if}
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Macondo&family=Rajdhani:wght@300&family=Quicksand:wght@300&display=swap&family=DynaPuff&display=swap&family=Playfair+Display&display=swap&family=Aboreto');
   @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap');
-  @font-face {
-    font-family: 'Balegah';
-    src: url('../assets/Balegah.otf');
-  }
   @font-face {
     font-family: 'Chicken';
-    src: url('../assets/chicken.otf');
-  }
-  @font-face {
-    font-family: 'ChocoShake';
-    src: url('../assets/chocoshake.otf');
+    src: url('../assets/fonts/chicken.otf');
   }
   @font-face {
     font-family: 'Cool';
-    src: url('../assets/coolvetica.otf')
-  }
-  @font-face {
-    font-family: 'Energy';
-    src: url('../assets/Energy.otf');
-  }
-  @font-face {
-    font-family: 'Mirage';
-    src: url('../assets/miragethin.otf');
+    src: url('../assets/fonts/coolvetica.otf')
   }
   @font-face {
     font-family: 'NK57';
-    src: url("../assets/nk57cdrg.otf")
+    src: url("../assets/fonts/nk57cdrg.otf")
   }
   @font-face {
     font-family: 'Nostalgia';
-    src: url('../assets/nostalgia.ttf')
-  }
-  @font-face {
-    font-family: 'Qarkine';
-    src: url('../assets/Qarkine.otf');
+    src: url('../assets/fonts/nostalgia.ttf')
   }
   @font-face {
     font-family: 'Sunflower';
-    src: url('../assets/sunflower.otf')
+    src: url('../assets/fonts/sunflower.otf')
+  }
+  @font-face {
+    font-family: 'Quat';
+    src: url('../assets/fonts/Quat.ttf')
+  }
+  @font-face {
+    font-family: 'Fanwood';
+    src: url('../assets/fonts/fanwood.ttf')
+  }
+  @font-face {
+    font-family: 'Playfair';
+    src: url('../assets/fonts/pfdisplay.ttf')
+  }
+  @font-face {
+    font-family: 'Alice';
+    src: url('../assets/fonts/alice.ttf')
   }
 
   :global(body) {

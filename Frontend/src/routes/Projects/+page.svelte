@@ -42,7 +42,6 @@
     {:else}
         <div id="protection"><DataLoading /></div>
     {/if}
-    
 </div>
 
 <style>
@@ -51,8 +50,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background: #ced7e0;
-        z-index: -2;
     }
 
     .bg-img {
@@ -61,7 +58,6 @@
         width: 100%;
         height: 100%;
         top: 0;
-        z-index: -1;
     }
 
     #projTitle {
@@ -79,6 +75,8 @@
     }
 
     #caseFrame {
+        position: relative;
+        box-sizing: border-box;
         margin-top: 1.5rem;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -92,6 +90,7 @@
     }
 
     #curFrame {
+        position: relative;
         margin-top: 1rem;
         width: 74%;
         display: grid;
@@ -100,7 +99,6 @@
         height: 6.5rem;
         border: 1.5px solid black;
         padding: 0.32rem 0 0.4rem 0;
-        /* background: linear-gradient(rgba(162, 172, 182, 0.93),rgb(97, 108, 118)); */
         background: rgba(40,40,40,0.65);
         border-radius: 4px;
     }

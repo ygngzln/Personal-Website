@@ -12,7 +12,9 @@
     let link = import.meta.env.VITE_BACKEND + "api/v1/imgs/" + project.img
 
     function openLink() {
-        window.open(project.project, '_blank').focus();        
+        if(project.project != null){
+            window.open(project.project, '_blank').focus();
+        }
     }
 </script>
 
@@ -92,9 +94,7 @@
         padding: 0.2rem 0.5rem 0.15rem 0.5rem;
         height: 5.5rem;
         overflow-y: auto;
-        scrollbar-width: thin;
-        font-family: 'Cool';
-        letter-spacing: 0.09em;
+        font-family: 'Alice';
         box-sizing: border-box;
         text-align: left;
         border-bottom: var(--case-border);
