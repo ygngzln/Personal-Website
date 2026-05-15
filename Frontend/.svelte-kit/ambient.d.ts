@@ -40,6 +40,7 @@
 declare module '$env/static/private' {
 	export const VITE_NODE_ENV: string;
 	export const VITE_BACKEND: string;
+	export const VITE_RECAPTCHA: string;
 	export const NVM_INC: string;
 	export const MANPATH: string;
 	export const TERM_PROGRAM: string;
@@ -53,6 +54,7 @@ declare module '$env/static/private' {
 	export const npm_config_global_prefix: string;
 	export const VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
 	export const TERM_PROGRAM_VERSION: string;
+	export const FPATH: string;
 	export const ZDOTDIR: string;
 	export const MallocNanoZone: string;
 	export const COLOR: string;
@@ -196,6 +198,7 @@ declare module '$env/dynamic/private' {
 	export const env: {
 		VITE_NODE_ENV: string;
 		VITE_BACKEND: string;
+		VITE_RECAPTCHA: string;
 		NVM_INC: string;
 		MANPATH: string;
 		TERM_PROGRAM: string;
@@ -209,6 +212,7 @@ declare module '$env/dynamic/private' {
 		npm_config_global_prefix: string;
 		VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
 		TERM_PROGRAM_VERSION: string;
+		FPATH: string;
 		ZDOTDIR: string;
 		MallocNanoZone: string;
 		COLOR: string;

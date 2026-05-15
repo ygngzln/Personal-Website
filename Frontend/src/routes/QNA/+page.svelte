@@ -12,6 +12,7 @@ if(import.meta.env.VITE_NODE_ENV === "development") {
 } else {
     stringstart = import.meta.env.VITE_BACKEND
 }
+const rekey = import.meta.env.VITE_RECAPTCHA;
 let uri2:string = stringstart + 'api/v1/qna/'
 let uri:string = stringstart + 'api/v1/suggestions/'
 
@@ -66,6 +67,7 @@ function send(){
     msg.value = sanitize(msg.value);
 
     let curDate:Date = new Date();
+    const token = grecaptcha.execute(rekey, {action: 'submit'});
 
     let dateString:String = (curDate.getMonth()+1).toString() + "/" + (curDate.getDate()).toString();
     
@@ -73,6 +75,7 @@ function send(){
         message: msg.value,
         date: dateString,
         checked: false,
+        token: token,
         ttokem: "69"
     })
     .catch(function(err){
@@ -93,6 +96,11 @@ onMount(async() => {
     qna = await axios.get(uri2);
     qna = qna.data;
     loaded = true;
+    if (window.grecaptcha) {
+        grecaptcha.ready(() => {
+            //gg
+        });
+    }
 })
 </script>
 
