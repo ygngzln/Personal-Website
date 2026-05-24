@@ -1,32 +1,55 @@
 <script lang="ts">
-    export let project:any;
+    interface Project {
+        img: string;
+        language: string;
+        project?: string | null;
+        name: string;
+        description: string;
+    }
+
+    export let project: Project;
+    export let src:string;
     import js from '../assets/icons/js.png'
     import cpp from '../assets/icons/cpp.png'
     import godot from '../assets/icons/godot.png'
 
-    let icons = {
-        "js": js,
-        "cpp": cpp,
-        "godot": godot
+    const icons: Record<string, string> = {
+        js,
+        cpp,
+        godot
     };
-    let link = import.meta.env.VITE_BACKEND + "api/v1/imgs/" + project.img
+    // let src:string = import.meta.env.VITE_BACKEND + "api/v1/imgs/" + project.img
 
     function openLink() {
         if(project.project != null){
-            window.open(project.project, '_blank').focus();
+            let tab = window.open(project.project, '_blank')
+            tab?.focus();
         }
+    }
+
+    async function preload() {
+        return new Promise(function(resolve) {
+            let img = new Image();
+            img.onload = resolve;
+            img.src = src;
+        })
     }
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- {#await preload() then _} -->
 <span id="case">
-    <div id="clickable" on:click={openLink}>
-        <!-- svelte-ignore a11y-img-redundant-alt -->
-         <div id="title"><img src={icons[project.language.toLowerCase()]} alt="Project icon" id="icon"/>{project.name}</div>
-        <div id="imgdiv"><img src={link} loading="lazy" alt="Project image" id="img"/></div>
+    <button id="clickable" type="button" on:click={openLink}>
+        <div id="title">
+            <img src={icons[project.language.toLowerCase()]} alt="projlang" aria-hidden="true" id="icon" />
+            {project.name}
+        </div>
+        <!-- <div id="imgdiv"> -->
+            <img {src} loading="lazy" alt={`${project.name} cover`} id="img"/>
+        <!-- </div> -->
         <div id="dsc">{project.description}</div>
-    </div>
+    </button>
 </span>
+<!-- {/await} -->
 
 <style>
     
@@ -45,23 +68,32 @@
 
     #clickable {
         display: inline-block;
+        background: none;
+        border: none;
+        border-radius: 0;
+        position: relative;
     }
 
     #clickable:hover {
         cursor: pointer;
     }
 
-    #imgdiv {
+    /* #imgdiv {
         width: 100%;
         height: 12rem;
         background: rgba(0, 0, 0, 0.795);
         border: var(--case-border);
         box-sizing: border-box;
-    }
+    } */
 
     #img {
         width: 100%;
-        height: 100%;
+        height: 12rem;
+        box-sizing: border-box;
+        background: rgba(0, 0, 0, 0.795);
+        border: var(--case-border);
+        margin: 0;
+        display: block;
     }
 
     #icon {

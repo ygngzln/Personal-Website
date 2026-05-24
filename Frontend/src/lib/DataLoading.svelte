@@ -1,25 +1,25 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    let animation: number = Math.floor(Math.random()*3)+1;
-    if(animation == 1) {
-        animation = Math.floor(Math.random()*3)+1;
-    }else{
-        animation = 4;
-    }
+    // let animation: number = Math.floor(Math.random()*3)+1;
+    // if(animation == 1) {
+    //     animation = Math.floor(Math.random()*3)+1;
+    // }else{
+    //     animation = 4;
+    // }
     let load1:HTMLElement, load2:HTMLElement, loadFull:HTMLElement;
 
     onMount(async() => {
-        load1.style.animation = loadFull.className + "-loadh14 3.5s infinite";
-        load2.style.animation = loadFull.className + "-loadh24 3.5s infinite";
-        loadFull.style.animation = loadFull.className + "-loadh34 3.5s infinite";
+        // load1.style.animation = loadFull.className + "-loadh14 3.5s infinite";
+        // load2.style.animation = loadFull.className + "-loadh24 3.5s infinite";
+        loadFull.style.animation = loadFull.className + "-loadh34 2.75s infinite";
     })
 </script>
 
 <div id="case">
     <span id="load" bind:this={loadFull}>
-        <span id="half1" bind:this={load1}>Load</span><span id="half2" bind:this={load2}>ing...</span>
+        <!-- <span id="half1" bind:this={load1}>Load</span><span id="half2" bind:this={load2}>ing...</span> -->
+        Loading
     </span>
-    <div id="grr">(May take up to a minute if data is starting up...)</div>
 </div>
 <style>
     #case {
@@ -28,22 +28,19 @@
         width: 100%;
         justify-content: center;
         align-items: center;
+        position:relative;
     }
 
     #load {
-        color: white;
+        color: #ced7e0;
         font-family: 'Michroma', sans-serif;
         font-size: 3rem;
-        background: rgb(0, 0, 0, 0.2);
+        background: rgb(0, 0, 0, 0.8);
         display: inline-block;
-    }
-
-    #grr {
-        color: white;
-        font-family: 'Michroma', sans-serif;
-        background: rgb(0, 0, 0, 0.2);
-        font-size: 0.6rem;
-        margin: 0.75rem 0;
+        box-sizing: border-box;
+        padding-bottom: 0.4rem;
+        border-right: 4px solid white;
+        border-left: 4px solid white;
     }
 
     @keyframes loadh1 {
@@ -168,7 +165,7 @@
         }
     }
 
-    @keyframes loadh14 {
+    /* @keyframes loadh14 {
         25% {
             border-bottom: 4px double white;
             border-left: 4px double white;
@@ -192,7 +189,6 @@
             border-radius: 1rem 1rem 1em 5px;
             padding: 0 1.5rem 0.4rem 0.25rem;
             margin-left: 0.25rem;
-            
         }
         75% {
             border-right: 4px double white;
@@ -201,18 +197,26 @@
             padding: 0 2.25rem 0.4rem 5px;
             margin-left: 0.5rem;
         }
-    }
+    } */
 
     @keyframes loadh34 {
         25% {
-            background: rgb(255, 255, 255, 0.6);
-            border-radius: 1rem 1rem 1em 1em;
-            padding-bottom: 0.4rem;
+            border-right: 6px double white;
+            box-sizing: border-box;
+            border-left: 6px double white;
+            padding: 0 1.5rem 0.4rem 1.5rem;
+            background: rgb(0, 0, 0, 0.7);
+            border-radius: 0.75rem 0.75rem 0.75rem 0.75rem;
+            letter-spacing: -0.2rem;
         }
         75% {
-            background: rgb(255, 255, 255, 0.2);
-            border-radius: 1rem 1rem 1em 1em;
-            padding-bottom: 0.4rem;
+            border-right: 6px double white;
+            box-sizing: border-box;
+            border-left: 6px double white;
+            padding: 0 2.25rem 0.4rem 2.25rem;
+            background: rgb(0, 0, 0, 0.9);
+            border-radius: 1rem 1rem 1rem 1rem;
+            letter-spacing: 1.2rem;
         }
     }
 </style>

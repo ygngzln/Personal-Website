@@ -16,13 +16,25 @@
     axios.get(uri)
 
     let list:any;
+    let srclist:string[]
     let loaded:boolean = false;
     onMount(async () => {
         window.scrollTo(0,0);
         list = await axios.get(uri).then((res) => res.data);
+        srclist = Array.from(list, (x:any) => import.meta.env.VITE_BACKEND + "api/v1/imgs/"+ x.img);
+        await preload();
         loaded = true;
-        console.log(list)
     })
+
+    async function preload() {
+        return new Promise(function(resolve) {
+            for(let x = 0; x < list.length; x++){
+                let img = new Image();
+                img.onload = resolve;
+                img.src = srclist[x];
+            }
+        })
+    }
 </script>
 
 <div class="bg-wrapper">
@@ -35,8 +47,8 @@
     </div>
     {#if loaded}
     <div id="caseFrame">
-        {#each list as x}
-            <Case project={x}/>
+        {#each list as x, i}
+            <Case project={x} src={srclist[i]}/>
         {/each}
     </div>
     {:else}
