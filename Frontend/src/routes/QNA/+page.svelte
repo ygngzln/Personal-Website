@@ -134,7 +134,9 @@ onMount(async() => {
         {/each}
     </div>
     {:else}
+    <div id="prot">
         <DataLoading />
+    </div>    
     {/if}
 </div>
 
@@ -297,6 +299,10 @@ onMount(async() => {
         margin-bottom: 10px;
         min-height: 18vh;
         border-radius: 0 0 0.2rem 0.2rem;
+    }
+
+    #prot {
+        margin: 1.5rem 0;
     }
 
     @media screen and (max-width: 414px) {
