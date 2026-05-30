@@ -148,6 +148,10 @@ const progtext:string = "I'm actively looking for project opportunities and I'm 
         background-color: rgba(59, 4, 14, 0.95);
     }
 
+    #progtext {
+        grid-area: ht;
+    }
+
     #contacts {
         font-family: 'Cool';
         font-size: 6vw;
@@ -186,16 +190,34 @@ const progtext:string = "I'm actively looking for project opportunities and I'm 
 
     @media screen and (max-width: 414px) {
         #gridwrapper {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(4, 2fr);
-            grid-template-rows: repeat(2, 2fr);
+            gap: 0.25rem;
+            grid-template-rows: 1.5fr 1.5fr 3fr 1.5fr 2.8fr;
             grid-template-areas:
             "t t t t"
-            "p p pi pii"
-            "g gi h ht";
-            justify-items: center;
-            gap: 0.75rem;  
+            "p p p p"
+            "pi pi pii pii"
+            "g g h h"
+            "gi gi ht ht"
+        }
+
+        .aboutText {
+            font-size: 1rem;
+        }
+
+        #title {
+            font-size: 14vw;
+        }
+
+        .linkimg {
+            font-size: 1vw;
+            width: 3.2rem;
+            display: block;
+            box-sizing: border-box;
+        }
+        
+        #contactwrapper {
+            margin-top: 0.2rem;
+            height: 4rem;
         }
     }
 </style>

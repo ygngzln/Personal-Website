@@ -18,21 +18,12 @@
         cpp,
         godot
     };
-    // let src:string = import.meta.env.VITE_BACKEND + "api/v1/imgs/" + project.img
 
     function openLink() {
         if(project.project != null){
             let tab = window.open(project.project, '_blank')
             tab?.focus();
         }
-    }
-
-    async function preload() {
-        return new Promise(function(resolve) {
-            let img = new Image();
-            img.onload = resolve;
-            img.src = src;
-        })
     }
 </script>
 
@@ -44,7 +35,7 @@
             {project.name}
         </div>
         <!-- <div id="imgdiv"> -->
-            <img {src} loading="lazy" alt={`${project.name} cover`} id="img"/>
+        <img {src} loading="lazy" alt={`${project.name} cover`} id="img"/>
         <!-- </div> -->
         <div id="dsc">{project.description}</div>
     </button>
@@ -52,22 +43,25 @@
 <!-- {/await} -->
 
 <style>
-    
     #case {
         --case-border: 0.1rem solid rgba(0, 0, 0, 1);
         width: 100%;
         height: 100%;
         position: relative;
+        padding: 1rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
-        padding: 1rem 1rem;
     }
 
     #clickable {
-        display: inline-block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
         background: none;
         border: none;
         border-radius: 0;
@@ -77,14 +71,6 @@
     #clickable:hover {
         cursor: pointer;
     }
-
-    /* #imgdiv {
-        width: 100%;
-        height: 12rem;
-        background: rgba(0, 0, 0, 0.795);
-        border: var(--case-border);
-        box-sizing: border-box;
-    } */
 
     #img {
         width: 100%;
@@ -139,14 +125,30 @@
     }
 
     @media screen and (max-width: 414px) {
-        #case {
-            padding: 2rem 1rem;
-        }
         #title {
-            height: 3.8rem;
+            font-size: 1.1rem;
+            flex: 2;
+            padding: 0.3rem 0 0.3rem 0.4rem;
         }
+
+        #icon {
+            margin-right: 0.6rem;
+            width: 1.4rem;
+            height: 1.42rem;
+        }
+
+        #case {
+            padding: 0.15rem;
+            height: 100%;
+        }
+
+        #img {
+            height: 6rem;
+        }
+
         #dsc {
-            letter-spacing: 0.01rem;
+            font-size: 1rem;
+            overflow-y: scroll;
         }
     }
 </style>

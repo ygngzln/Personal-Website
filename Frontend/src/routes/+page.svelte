@@ -149,10 +149,40 @@
     }
 
     @media screen and (max-width: 414px) {
+        #title {
+            font-size: 4rem;
+        }
+
+        #sub {
+            font-size: 2.1rem;
+            text-shadow: 0.2px -0.2px 1px #000, -0.5px 0.5px 1px #000, 0.5px 0.5px 1px #000, -0.5px -0.5px 1px #000;
+            margin: 1rem 0;
+            color: rgb(194, 103, 129);
+        }
+
         #frame {
-            grid-template-rows: 1fr 1fr 1.2fr;
-            grid-template-columns: 4fr 2fr 3fr;
-            height: 45vh;
+            grid-template-areas:
+            "p"
+            "t"
+            "i";
+            grid-template-columns: auto;
+        }
+
+        #projects {
+            font-size: 3rem;
+            padding-top: 0;
+        }
+
+        #abouttext {
+            font-size: 2.75rem;
+        }
+
+        #image2 {
+            font-size: 2.75rem;
+        }
+
+        #image2:hover {
+            font-size: 2.8rem;
         }
     }
 </style>

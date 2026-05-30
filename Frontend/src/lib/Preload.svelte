@@ -18,7 +18,7 @@
         font-weight: bold;
         text-align: middle;
         background-color: black;
-        color: skyblue;
+        color: rgb(190, 204, 210);
         font-family: 'Michroma', sans-serif;
     }
     
@@ -63,6 +63,12 @@
 
         100% {
             margin-top: 0.6rem
+        }
+    }
+    
+    @media screen and (max-width: 414px) {
+        div {
+            font-size: 2rem;
         }
     }
 </style>

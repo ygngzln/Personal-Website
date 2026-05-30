@@ -116,7 +116,7 @@ onMount(async() => {
             </div>
         </div>
         <div id="inputs">
-            <textarea bind:this={msg}></textarea>
+            <textarea bind:this={msg} placeholder="Type your anonymous QNA here!"></textarea>
             <div id="error" bind:this={err}></div>
             <div id="buttoncont"><button on:click={send}>Send</button></div>
         </div>
@@ -222,6 +222,10 @@ onMount(async() => {
         position: relative;
     }
 
+    textarea::placeholder {
+        font-size: 1rem;
+    }
+
     textarea:focus {
         outline: 4px double black;
     }
@@ -307,7 +311,23 @@ onMount(async() => {
 
     @media screen and (max-width: 414px) {
         textarea {
-            height: 20vh;
+            height: 10vh;
+        }
+
+        .q {
+            font-size: 1.5em;
+        }
+
+        .a {
+            font-size: 1em;
+            min-height: 9vh;
+        }
+
+        #qnabox {
+            margin: 0.8rem 0;
+            gap: 0.6rem;
+            grid-template-columns: repeat(2, 1fr);
+            width: 95%;
         }
     }
 </style>

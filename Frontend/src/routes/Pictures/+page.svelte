@@ -65,4 +65,22 @@
     #background > :global(div:last-child)  {
         width: 75%;
     }
+
+    @media screen and (max-width: 414px) {
+        #title {
+            font-size: 14vw;
+        }
+
+        #disc {
+            font-size: 3vw
+        }
+
+        .slideImage {
+            height: 20rem;
+        }
+
+        #background > :global(div:last-child)  {
+            width: 90%;
+        }
+    }
 </style>

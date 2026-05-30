@@ -164,10 +164,10 @@
     font-family: 'Macondo', cursive;
     font-weight: bold;
     height: 90%;
+    column-gap: 0.4rem;
   }
 
   #title img {
-    margin-right: 6%;
     width: 1.5em;
     height: 1.5em;
   }
@@ -271,7 +271,26 @@
       font-size: 14px;
     }
     #title {
-      padding: 0 0.5rem;
+      padding: 0 0.2rem;
+      margin: 0 0.3rem 0 0.38rem;
+      font-size: 0.9em;
+    }
+    .link {
+      font-size: 1em;
+    }
+    .normalLinks {
+      display: flex;
+      flex-direction: row;
+      column-gap: 1rem;
+    }
+    .normalLinks > :global(a) {
+      margin: 0 0;
+      color: black;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: bold;
+    }
+    #others {
+      width: 28%;
     }
   }
 </style>
