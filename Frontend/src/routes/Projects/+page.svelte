@@ -41,9 +41,9 @@
     <img src={moonclouds} alt='not load' class="bg-img" loading='lazy'/>
     <div id="projTitle">PROJECTS</div>
     <div id="curFrame">
-        <span id="curTitle">Current work:</span>
-        <span id="curName">• RPG-style game dev
-            <br>• Stat-displaying projects</span>
+        <span id="curTitle">Ongoing work:</span>
+        <span id="curName">• Small orienteering sim (plus map generation?)
+            <br>• Info-displaying projects</span>
     </div>
     {#if loaded}
     <div id="caseFrame">
@@ -105,11 +105,11 @@
     #curFrame {
         position: relative;
         margin-top: 1rem;
-        width: 74%;
+        width: 80%;
         display: grid;
         grid-template-columns: 1.1fr 1fr;
         align-items: center;
-        height: 6.5rem;
+        height: 8rem;
         border: 1.5px solid black;
         padding: 0.32rem 0 0.4rem 0;
         background: rgba(40,40,40,0.65);

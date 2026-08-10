@@ -7,7 +7,7 @@
         Yigeng Lin
     </span>
     <span id="sub">
-        Computer Science Major
+        Undergrad CS Major @UCSB
     </span>
     <hr>
     <div id="frame">
