@@ -51,7 +51,7 @@
     <footer>
       <div id="footerContent">
         <span id="footerText">
-          Made by Yigeng Lin - Hosted With Vercel
+          © 2026 Developed by Yigeng Lin 
         <span class="normalLinks">
           <a href="/">Home</a>
           <a href="/About">About Me</a>
@@ -236,11 +236,11 @@
     position: relative;
     padding-left: 0.75em;
     font-family: monospace;
-    font-size: 0.7em;
+    font-size: 0.75em;
   }
 
   .normalLinks > :global(a) {
-    margin: 0 0.4em;
+    margin: 0 0.6em;
     color: black;
     font-family: 'Rajdhani', sans-serif;
     font-weight: bold;
