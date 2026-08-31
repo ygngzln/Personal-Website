@@ -42,7 +42,7 @@
     <div id="projTitle">PROJECTS</div>
     <div id="curFrame">
         <span id="curTitle">Ongoing work:</span>
-        <span id="curName">• Small orienteering sim (plus map generation?)
+        <span id="curName">• Small orienteering sim (with map generation)
             <br>• Info-displaying projects</span>
     </div>
     {#if loaded}
